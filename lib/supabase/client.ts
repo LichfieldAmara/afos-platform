@@ -1,4 +1,6 @@
-import { createClient } from "@supabase/supabase-js";
+"use client";
+
+import { createBrowserClient } from "@supabase/ssr";
 
 import { getSupabasePublicConfig } from "./config";
 
@@ -6,11 +8,9 @@ export function createBrowserSupabaseClient() {
   const config = getSupabasePublicConfig();
 
   if (!config) {
-    throw new Error(
-      "Supabase is not configured. Add the required environment variables.",
-    );
+    throw new Error("Supabase is not configured.");
   }
 
-  return createClient(config.url, config.publishableKey);
+  return createBrowserClient(config.url, config.publishableKey);
 }
 

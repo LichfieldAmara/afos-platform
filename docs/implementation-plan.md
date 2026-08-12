@@ -508,11 +508,11 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | Phase | Status | Gate result | Notes |
 |---|---|---|---|
 | 0 — Preserve discovery | In progress | Pending | Discovery toolkit created; interviews and authorized evidence remain founder/participant actions |
-| 1 — Ownership and infrastructure | In progress | Pending | GitHub and Vercel live; Central Europe Supabase development project created and environment variables configured; connection verification pending |
+| 1 — Ownership and infrastructure | In progress | Pending | GitHub and Vercel live; Central Europe Supabase development project connected; live schema verification pending deployment |
 | 2 — Transaction model | In progress | Pending | Working role matrix and tested state graphs created; operational validation required |
 | 3 — Product/operations specification | Started | Pending | PRD v0.1 created |
 | 4 — Wireframes and validation | Not started | Pending | — |
-| 5 — Data/API/security design | Not started | Pending | — |
+| 5 — Data/API/security design | In progress | Pending | Initial secure schema applied successfully by founder; live table and RLS verification underway |
 | 6 — Vertical slice | Not started | Pending | — |
 | 7 — Complete MVP | Not started | Pending | — |
 | 8 — Readiness testing | Not started | Pending | — |

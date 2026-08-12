@@ -4,6 +4,26 @@ import { getSupabasePublicConfig } from "@/lib/supabase/config";
 
 export const dynamic = "force-dynamic";
 
+const requiredTables = [
+  "organizations",
+  "profiles",
+  "organization_memberships",
+  "provider_verifications",
+  "trucks",
+  "trailers",
+  "drivers",
+  "capacity_declarations",
+  "transport_requests",
+  "provider_offers",
+  "allocations",
+  "trips",
+  "trip_status_events",
+  "exceptions",
+  "deliveries",
+  "notifications",
+  "audit_events",
+];
+
 export async function GET() {
   const config = getSupabasePublicConfig();
 
@@ -30,9 +50,42 @@ export async function GET() {
       throw new Error(`Supabase health check returned ${response.status}`);
     }
 
+    const tableChecks = await Promise.all(
+      requiredTables.map(async (table) => {
+        const tableResponse = await fetch(
+          `${config.url}/rest/v1/${table}?select=id&limit=0`,
+          {
+            headers: {
+              apikey: config.publishableKey,
+              Authorization: `Bearer ${config.publishableKey}`,
+            },
+            cache: "no-store",
+            signal: AbortSignal.timeout(5000),
+          },
+        );
+
+        return tableResponse.ok ? null : table;
+      }),
+    );
+
+    const missingTables = tableChecks.filter((table) => table !== null);
+
+    if (missingTables.length > 0) {
+      return NextResponse.json(
+        {
+          application: "ok",
+          database: "connected",
+          schema: "incomplete",
+          missingTables,
+        },
+        { status: 503 },
+      );
+    }
+
     return NextResponse.json({
       application: "ok",
       database: "connected",
+      schema: "ready",
     });
   } catch {
     return NextResponse.json(
@@ -44,4 +97,3 @@ export async function GET() {
     );
   }
 }
-
