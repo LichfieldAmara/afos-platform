@@ -116,6 +116,9 @@ The system must:
 - Display the request's current fulfilment state.
 - Permit controlled amendment or cancellation with reasons and history.
 - Separate requested, matched, allocated, completed, and unfulfilled quantities.
+- Allow container numbers to be added after initial submission but require them before dispatch where the operating rule requires it.
+- Record movement type, cargo category, estimated cargo weight with unit, pickup readiness, requested pickup window, and requested delivery window.
+- Support authorized freight forwarder or clearing-agent participation as a demand-side organization without presenting AFOS as an authoritative customs or port-status source.
 
 ### Epic 6 — Matching and provider offers
 
@@ -130,6 +133,8 @@ The system must:
 - Support partial and multi-provider fulfilment.
 
 Automated AI matching is outside the MVP.
+
+The pilot will record manually coordinated quotations or confirmed prices. Automated estimated pricing and unrestricted price-only provider comparison are outside the MVP.
 
 ### Epic 7 — Allocation
 
@@ -325,6 +330,16 @@ Business success will be determined by the pilot validation framework, not by so
 - Required notification channels
 - Final driver and dispatcher status vocabulary
 - Pilot locations, routes, and operational support hours
+- Source and authority for any container-release, customs-clearance, appointment, demurrage, or detention status
+
+## 12A. Post-MVP vision items
+
+- Live GPS map after a reliable authorized location source exists
+- Automated transport-cost estimates after route/rate evidence exists
+- Integrated invoicing, payments, commissions, earnings, and settlement
+- Authoritative port, terminal, customs, and clearing integrations
+- Automatic demurrage and detention calculations
+- Full clearing-agent handover workflows
 
 ## 13. Change-control rule
 
@@ -348,4 +363,3 @@ A request is not automatically added to the MVP because one participant asks for
 | Date | Version | Change | Author/owner |
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial consolidated MVP PRD | AFOS / pending review |
-

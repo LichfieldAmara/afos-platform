@@ -1,6 +1,5 @@
-import { signOut } from "@/app/actions/auth";
 import { requireUser } from "@/lib/auth/session";
-import Link from "next/link";
+import { AppShell } from "@/components/app/app-shell";
 
 export const dynamic = "force-dynamic";
 
@@ -14,16 +13,7 @@ const queues = [
 export default async function AppHome() {
   const user = await requireUser();
   return (
-    <main className="operations-shell">
-      <aside className="operations-sidebar">
-        <Link className="brand" href="/app"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>Operations</small></span></Link>
-        <nav aria-label="Operations">
-          <Link className="active" href="/app">Overview</Link>
-          <span>Requests</span><span>Capacity</span><span>Offers</span><span>Trips</span><span>Exceptions</span><span>Providers</span>
-        </nav>
-        <form action={signOut}><button className="sidebar-signout" type="submit">Sign out</button></form>
-      </aside>
-      <section className="operations-main">
+    <AppShell active="Overview" email={user.email}>
         <header className="operations-header">
           <div><span className="operations-kicker">Live coordination</span><h1>Operations overview</h1></div>
           <div className="user-chip"><span>{user.email.slice(0, 1).toUpperCase()}</span><div><strong>Signed in</strong><small>{user.email}</small></div></div>
@@ -39,7 +29,6 @@ export default async function AppHome() {
           <div><span>Priority queue</span><h2>Nothing requires action yet</h2><p>Once pilot test data is introduced, requests, provider responses, trips and exceptions will appear here in order of operational urgency.</p></div>
           <span className="empty-mark">00</span>
         </section>
-      </section>
-    </main>
+    </AppShell>
   );
 }
