@@ -47,4 +47,3 @@ begin
   on conflict (organization_id, user_id, role) do update set
     status = 'active';
 end $$;
-

@@ -29,8 +29,8 @@ export default async function AppHome() {
           <div className="user-chip"><span>{user.email.slice(0, 1).toUpperCase()}</span><div><strong>Signed in</strong><small>{user.email}</small></div></div>
         </header>
         <section className="readiness-banner">
-          <div><span>Development environment</span><h2>Foundation ready for controlled test data</h2><p>The operational schema must be applied and verified before real records appear here.</p></div>
-          <strong>Database gate pending</strong>
+          <div><span>Development environment</span><h2>Core schema verified and administrator access active</h2><p>Use authorized test records only while the operational workflows are being implemented and validated.</p></div>
+          <strong>Test data only</strong>
         </section>
         <section className="queue-grid" aria-label="Operational summary">
           {queues.map((queue) => <article key={queue.label}><span>{queue.label}</span><strong>{queue.value}</strong><small>{queue.note}</small></article>)}

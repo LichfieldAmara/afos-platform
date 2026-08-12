@@ -4,6 +4,7 @@ import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
 
 const schema = readFileSync(resolve("supabase/migrations/202608120001_initial_afos_schema.sql"), "utf8");
+const auditPolicy = readFileSync(resolve("supabase/migrations/202608120002_audit_insert_policy.sql"), "utf8");
 const requiredTables = ["organizations", "profiles", "organization_memberships", "provider_verifications", "trucks", "trailers", "drivers", "capacity_declarations", "transport_requests", "provider_offers", "allocations", "trips", "trip_status_events", "exceptions", "deliveries", "notifications", "audit_events"];
 
 test("schema defines every MVP table", () => {
@@ -32,6 +33,13 @@ test("provider writes require provider operational roles", () => {
 
 test("audit records cannot be updated or deleted by authenticated users", () => {
   assert.match(schema, /revoke update, delete on public\.audit_events from authenticated;/);
+});
+
+test("only authenticated AFOS operations roles can insert their own audit events", () => {
+  assert.match(auditPolicy, /for insert\s+to authenticated/);
+  assert.match(auditPolicy, /actor_id = auth\.uid\(\)/);
+  assert.match(auditPolicy, /has_platform_role\('afos_operations'\)/);
+  assert.match(auditPolicy, /has_platform_role\('afos_administrator'\)/);
 });
 
 test("request quantities and capacity quantities must be positive", () => {
