@@ -417,6 +417,19 @@ Validate AFOS using real demand, verified capacity, and completed container move
 
 - Start with a small number of supervised movements.
 - Review waiting demand, capacity, offers, allocations, trips, and exceptions daily.
+
+### Implemented first operational loop
+
+The first controlled Operations workflow now follows one traceable sequence:
+
+1. Capture a transport request using the assisted three-step intake.
+2. Register a verified provider's active truck, trailer, driver, and declared availability.
+3. Match a request to compatible capacity using explicit size, date, quantity, and verification checks.
+4. Send an offer and record the provider's phone or platform response.
+5. Allocate active provider resources only after acceptance.
+6. Create an assigned trip with database protection against overlapping truck, trailer, or driver schedules.
+
+During the controlled pilot, AFOS Operations may record capacity and provider responses received by phone. This avoids making provider account onboarding a prerequisite for validating the operational transaction, while retaining authorization and audit history.
 - Consolidate metrics and qualitative feedback weekly.
 - Record failed requests and root causes.
 - Track manual intervention and reported off-platform behaviour.

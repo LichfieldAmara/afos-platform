@@ -1,17 +1,21 @@
 import { requireUser } from "@/lib/auth/session";
 import { AppShell } from "@/components/app/app-shell";
+import { operationalData } from "@/lib/operations/data";
 
 export const dynamic = "force-dynamic";
 
-const queues = [
-  { label: "Requests waiting", value: "—", note: "Awaiting first pilot data" },
-  { label: "Capacity available", value: "—", note: "Provider declarations" },
-  { label: "Offers unanswered", value: "—", note: "Provider response required" },
-  { label: "Open exceptions", value: "—", note: "Operational attention" },
-];
-
 export default async function AppHome() {
   const user = await requireUser();
+  const data = await operationalData();
+  const waiting = data.requests.filter((item) => ["submitted", "matching"].includes(item.status)).length;
+  const unanswered = data.offers.filter((item) => item.status === "sent").length;
+  const queues = [
+    { label: "Requests waiting", value: waiting, note: "Need suitable capacity" },
+    { label: "Capacity available", value: data.capacity.length, note: "Provider declarations" },
+    { label: "Offers unanswered", value: unanswered, note: "Provider response required" },
+    { label: "Trips scheduled", value: data.trips.length, note: "Allocated movements" },
+  ];
+  const priority = unanswered > 0 ? `${unanswered} provider response${unanswered === 1 ? "" : "s"} need follow-up` : waiting > 0 ? `${waiting} request${waiting === 1 ? "" : "s"} need matching` : "Nothing requires action yet";
   return (
     <AppShell active="Overview" email={user.email}>
         <header className="operations-header">
@@ -26,8 +30,8 @@ export default async function AppHome() {
           {queues.map((queue) => <article key={queue.label}><span>{queue.label}</span><strong>{queue.value}</strong><small>{queue.note}</small></article>)}
         </section>
         <section className="work-queue">
-          <div><span>Priority queue</span><h2>Nothing requires action yet</h2><p>Once pilot test data is introduced, requests, provider responses, trips and exceptions will appear here in order of operational urgency.</p></div>
-          <span className="empty-mark">00</span>
+          <div><span>Priority queue</span><h2>{priority}</h2><p>Review unanswered offers first, then match waiting demand with verified capacity.</p></div>
+          <span className="empty-mark">{String(unanswered || waiting).padStart(2, "0")}</span>
         </section>
     </AppShell>
   );
