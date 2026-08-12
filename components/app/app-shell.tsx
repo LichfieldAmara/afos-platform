@@ -10,7 +10,7 @@ export function AppShell({ active, email, children }: { active: string; email: s
   return (
     <main className="operations-shell">
       <aside className="operations-sidebar">
-        <Link className="brand" href="/app"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>Operations</small></span></Link>
+        <Link className="brand" href="/" aria-label="AFOS public homepage"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>Operations</small></span></Link>
         <nav aria-label="Operations">{navigation.map(([label, href]) => <Link className={active === label ? "active" : ""} key={label} href={href}>{label}</Link>)}</nav>
         <form action={signOut}><button className="sidebar-signout" type="submit">Sign out</button></form>
       </aside>
@@ -21,4 +21,3 @@ export function AppShell({ active, email, children }: { active: string; email: s
     </main>
   );
 }
-
