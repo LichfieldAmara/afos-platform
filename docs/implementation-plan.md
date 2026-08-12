@@ -508,7 +508,7 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | Phase | Status | Gate result | Notes |
 |---|---|---|---|
 | 0 — Preserve discovery | In progress | Pending | Founder leaves AGL this week |
-| 1 — Ownership and infrastructure | In progress | Pending | GitHub connected; production live at https://afos-platform.vercel.app; Supabase setup pending |
+| 1 — Ownership and infrastructure | In progress | Pending | GitHub and Vercel live; Central Europe Supabase development project created and environment variables configured; connection verification pending |
 | 2 — Transaction model | Not started | Pending | Roles and states require review |
 | 3 — Product/operations specification | Started | Pending | PRD v0.1 created |
 | 4 — Wireframes and validation | Not started | Pending | — |
@@ -529,6 +529,8 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | 12 Aug 2026 | Use a mobile-first web application with GitHub, Vercel, and Supabase | Working decision | Founder |
 | 12 Aug 2026 | Use Next.js 16 with a verified Webpack production build for the initial Vercel foundation | Implemented | Founder / technical partner |
 | 12 Aug 2026 | Use https://afos-platform.vercel.app as the initial Vercel production address | Implemented | Founder |
+| 12 Aug 2026 | Host the initial Supabase development project in Central Europe and use test data only | Implemented | Founder |
+| 12 Aug 2026 | Defer the first operational schema migration until roles and transaction states are approved | Approved | Founder / technical partner |
 
 ## 22. Revision history
 
