@@ -14,6 +14,22 @@ test("every MVP table enables row level security", () => {
   for (const table of requiredTables) assert.match(schema, new RegExp(`alter table public\\.${table} enable row level security;`));
 });
 
+test("sensitive workflow tables have explicit access policies", () => {
+  for (const table of ["verification_documents", "exceptions", "deliveries"]) {
+    assert.match(schema, new RegExp(`create policy [^;]+ on public\\.${table}`));
+  }
+});
+
+test("active trips prevent overlapping truck, trailer, and driver allocation", () => {
+  for (const resource of ["truck_id", "trailer_id", "driver_id"]) {
+    assert.match(schema, new RegExp(`exclude using gist \\(${resource} with =, tstzrange`));
+  }
+});
+
+test("provider writes require provider operational roles", () => {
+  assert.match(schema, /has_organization_role\(provider_id, array\['provider_manager', 'provider_dispatcher'\]/);
+});
+
 test("audit records cannot be updated or deleted by authenticated users", () => {
   assert.match(schema, /revoke update, delete on public\.audit_events from authenticated;/);
 });

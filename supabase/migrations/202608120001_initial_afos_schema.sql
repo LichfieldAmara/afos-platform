@@ -1,6 +1,7 @@
 begin;
 
 create extension if not exists pgcrypto;
+create extension if not exists btree_gist;
 
 create type public.organization_type as enum ('customer', 'freight_forwarder', 'transport_provider', 'afos');
 create type public.membership_role as enum ('customer_user', 'freight_forwarder_user', 'provider_manager', 'provider_dispatcher', 'driver', 'afos_operations', 'afos_administrator');
@@ -175,9 +176,14 @@ create table public.trips (
   driver_id uuid not null references public.drivers(id) on delete restrict,
   status public.trip_status not null default 'assigned',
   scheduled_start timestamptz not null,
+  scheduled_end timestamptz not null,
   delivered_at timestamptz,
   completed_at timestamptz,
-  created_at timestamptz not null default now()
+  created_at timestamptz not null default now(),
+  check (scheduled_end > scheduled_start),
+  exclude using gist (truck_id with =, tstzrange(scheduled_start, scheduled_end, '[)') with &&) where (status not in ('failed', 'cancelled', 'completed')),
+  exclude using gist (trailer_id with =, tstzrange(scheduled_start, scheduled_end, '[)') with &&) where (status not in ('failed', 'cancelled', 'completed')),
+  exclude using gist (driver_id with =, tstzrange(scheduled_start, scheduled_end, '[)') with &&) where (status not in ('failed', 'cancelled', 'completed'))
 );
 
 create table public.trip_status_events (
@@ -268,6 +274,17 @@ language sql stable security definer set search_path = '' as $$
   );
 $$;
 
+create function public.has_organization_role(target_organization uuid, allowed_roles public.membership_role[]) returns boolean
+language sql stable security definer set search_path = '' as $$
+  select exists (
+    select 1 from public.organization_memberships m
+    where m.organization_id = target_organization
+      and m.user_id = auth.uid()
+      and m.status = 'active'
+      and m.role = any(allowed_roles)
+  );
+$$;
+
 alter table public.organizations enable row level security;
 alter table public.profiles enable row level security;
 alter table public.organization_memberships enable row level security;
@@ -288,20 +305,33 @@ alter table public.notifications enable row level security;
 alter table public.audit_events enable row level security;
 
 create policy profiles_self_select on public.profiles for select using (id = auth.uid() or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy profiles_self_insert on public.profiles for insert with check (id = auth.uid());
+create policy profiles_self_update on public.profiles for update using (id = auth.uid()) with check (id = auth.uid());
 create policy memberships_member_select on public.organization_memberships for select using (user_id = auth.uid() or public.is_active_member(organization_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy memberships_admin_write on public.organization_memberships for all using (public.has_platform_role('afos_administrator')) with check (public.has_platform_role('afos_administrator'));
 create policy organizations_member_select on public.organizations for select using (public.is_active_member(id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy organizations_admin_write on public.organizations for all using (public.has_platform_role('afos_administrator')) with check (public.has_platform_role('afos_administrator'));
 
 create policy requests_member_select on public.transport_requests for select using (public.is_active_member(organization_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
 create policy requests_member_insert on public.transport_requests for insert with check (requested_by = auth.uid() and public.is_active_member(organization_id));
 create policy requests_member_update on public.transport_requests for update using (requested_by = auth.uid() and public.is_active_member(organization_id)) with check (requested_by = auth.uid() and public.is_active_member(organization_id));
 
-create policy trucks_provider_all on public.trucks for all using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.is_active_member(provider_id) or public.has_platform_role('afos_administrator'));
-create policy trailers_provider_all on public.trailers for all using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.is_active_member(provider_id) or public.has_platform_role('afos_administrator'));
-create policy drivers_provider_all on public.drivers for all using (public.is_active_member(provider_id) or user_id = auth.uid() or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.is_active_member(provider_id) or public.has_platform_role('afos_administrator'));
-create policy capacity_provider_all on public.capacity_declarations for all using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.is_active_member(provider_id) or public.has_platform_role('afos_administrator'));
+create policy trucks_provider_select on public.trucks for select using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy trucks_provider_write on public.trucks for all using (public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[]) or public.has_platform_role('afos_administrator')) with check (public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[]) or public.has_platform_role('afos_administrator'));
+create policy trailers_provider_select on public.trailers for select using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy trailers_provider_write on public.trailers for all using (public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[]) or public.has_platform_role('afos_administrator')) with check (public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[]) or public.has_platform_role('afos_administrator'));
+create policy drivers_provider_select on public.drivers for select using (public.is_active_member(provider_id) or user_id = auth.uid() or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy drivers_provider_write on public.drivers for all using (public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[]) or public.has_platform_role('afos_administrator')) with check (public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[]) or public.has_platform_role('afos_administrator'));
+create policy capacity_provider_select on public.capacity_declarations for select using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy capacity_provider_write on public.capacity_declarations for all using (public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[]) or public.has_platform_role('afos_administrator')) with check ((declared_by = auth.uid() and public.has_organization_role(provider_id, array['provider_manager', 'provider_dispatcher']::public.membership_role[])) or public.has_platform_role('afos_administrator'));
 
 create policy verifications_provider_select on public.provider_verifications for select using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy verifications_provider_insert on public.provider_verifications for insert with check (public.has_organization_role(provider_id, array['provider_manager']::public.membership_role[]) and status in ('draft', 'submitted'));
+create policy verifications_provider_update on public.provider_verifications for update using (public.has_organization_role(provider_id, array['provider_manager']::public.membership_role[]) and status in ('draft', 'submitted', 'rejected')) with check (public.has_organization_role(provider_id, array['provider_manager']::public.membership_role[]) and status in ('draft', 'submitted'));
 create policy verifications_operations_all on public.provider_verifications for all using (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create policy verification_documents_participant_select on public.verification_documents for select using (exists (select 1 from public.provider_verifications v where v.id = verification_id and (public.is_active_member(v.provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'))));
+create policy verification_documents_provider_write on public.verification_documents for all using (exists (select 1 from public.provider_verifications v where v.id = verification_id and public.has_organization_role(v.provider_id, array['provider_manager']::public.membership_role[]))) with check (exists (select 1 from public.provider_verifications v where v.id = verification_id and public.has_organization_role(v.provider_id, array['provider_manager']::public.membership_role[])));
+create policy verification_documents_operations_write on public.verification_documents for all using (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
 
 create policy offers_participant_select on public.provider_offers for select using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
 create policy offers_participant_update on public.provider_offers for update using (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.is_active_member(provider_id) or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
@@ -315,8 +345,25 @@ create policy trips_operations_write on public.trips for all using (public.has_p
 create policy trip_events_participant_select on public.trip_status_events for select using (exists (select 1 from public.trips t left join public.drivers d on d.id = t.driver_id where t.id = trip_id and (public.is_active_member(t.provider_id) or d.user_id = auth.uid() or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'))));
 create policy trip_events_assigned_insert on public.trip_status_events for insert with check (changed_by = auth.uid() and exists (select 1 from public.trips t left join public.drivers d on d.id = t.driver_id where t.id = trip_id and (d.user_id = auth.uid() or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'))));
 
+create policy exceptions_participant_select on public.exceptions for select using (
+  public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator') or
+  exists (select 1 from public.transport_requests r where r.id = request_id and public.is_active_member(r.organization_id)) or
+  exists (select 1 from public.trips t left join public.drivers d on d.id = t.driver_id where t.id = trip_id and (public.is_active_member(t.provider_id) or d.user_id = auth.uid()))
+);
+create policy exceptions_participant_insert on public.exceptions for insert with check (reported_by = auth.uid() and (
+  public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator') or
+  exists (select 1 from public.transport_requests r where r.id = request_id and public.is_active_member(r.organization_id)) or
+  exists (select 1 from public.trips t left join public.drivers d on d.id = t.driver_id where t.id = trip_id and (public.is_active_member(t.provider_id) or d.user_id = auth.uid()))
+));
+create policy exceptions_operations_update on public.exceptions for update using (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+
+create policy deliveries_participant_select on public.deliveries for select using (exists (select 1 from public.trips t join public.allocations a on a.id = t.allocation_id join public.transport_requests r on r.id = a.request_id left join public.drivers d on d.id = t.driver_id where t.id = trip_id and (public.is_active_member(t.provider_id) or public.is_active_member(r.organization_id) or d.user_id = auth.uid() or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'))));
+create policy deliveries_assigned_insert on public.deliveries for insert with check (submitted_by = auth.uid() and exists (select 1 from public.trips t left join public.drivers d on d.id = t.driver_id where t.id = trip_id and (d.user_id = auth.uid() or public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'))));
+create policy deliveries_operations_update on public.deliveries for update using (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+
 create policy notifications_self on public.notifications for select using (user_id = auth.uid());
 create policy notifications_self_update on public.notifications for update using (user_id = auth.uid()) with check (user_id = auth.uid());
+create policy notifications_operations_insert on public.notifications for insert with check (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
 create policy audit_operations_select on public.audit_events for select using (public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
 
 revoke update, delete on public.audit_events from authenticated;
