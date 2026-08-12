@@ -33,6 +33,11 @@ test("request form uses a short, assisted, plain-language journey", () => {
   assert.match(form, /list="container-size-options"/);
   assert.match(form, /list="container-quantity-options"/);
   assert.doesNotMatch(form, /Import|Export|Empty return|name="movementType"/);
+  assert.match(form, /wizard-progress/);
+  assert.match(form, /Step 1 of 3/);
+  assert.match(form, /continueFrom\(1\)/);
+  assert.match(form, /continueFrom\(2\)/);
+  assert.match(form, /hidden=\{step !== 3\}/);
 });
 
 test("request storage accepts a genuine typed container size", () => {
