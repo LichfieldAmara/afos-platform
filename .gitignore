@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Build and test output
+coverage/
+playwright-report/
+test-results/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Vercel local configuration
+.vercel/
+
+# Logs
+*.log
+
+# Operating system and editor files
+.DS_Store
+.idea/
+.vscode/
+
+# Raw source conversation retained locally only
+Trailer conversation.md
+
