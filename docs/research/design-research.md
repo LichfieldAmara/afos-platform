@@ -61,3 +61,22 @@ These are inspiration sources, not templates to copy. AFOS will use original lay
 ## Validation rule
 
 Visual quality does not validate usability. Every important workflow must be tested with representative users using realistic tasks before pilot approval.
+
+## Low-literacy and assisted request intake
+
+Sources reviewed:
+
+- [W3C accessible forms tutorial](https://www.w3.org/WAI/tutorials/forms/)
+- [W3C clear and understandable content guidance](https://www.w3.org/WAI/WCAG2/supplemental/objectives/o3-clear-content/)
+- [W3C cognitive and learning accessibility barriers](https://www.w3.org/WAI/people-use-web/abilities-barriers/cognitive/)
+
+Decisions for the AFOS transport-request journey:
+
+- Group the minimum questions into three visible sections: what is moving, where and when, and who to call.
+- Use common words such as “pick up from” and “deliver to”; do not lead with freight or customs jargon.
+- Present container size and movement type as large labelled choices instead of dense dropdowns.
+- Make information that may not yet be known—container number, weight, cargo category, and notes—optional at initial intake.
+- Allow AFOS Operations to record a request received by phone or WhatsApp so digital confidence is not a condition of service.
+- Explain the next action before submission and use specific correction messages when information is missing.
+- Use mobile input types, autofill hints, large targets, and click-to-call links.
+- Do not add a long wizard, mandatory account registration, automatic quotation, file uploads, customs status, or payment questions to the first request interaction.
