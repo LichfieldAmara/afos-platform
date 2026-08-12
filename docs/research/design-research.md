@@ -10,6 +10,8 @@
 - [Dribbble logistics dashboards](https://dribbble.com/tags/logistics-dashboard)
 - [Dribbble dispatch dashboards](https://dribbble.com/search/dispatch-dashboard)
 - [Dribbble freight dashboards](https://dribbble.com/search/freight-dashboard)
+- [Awwwards transport and logistics examples](https://www.awwwards.com/sites/search/?text=transport%20logistics)
+- [21st.dev component community](https://21st.dev/)
 
 These are inspiration sources, not templates to copy. AFOS will use original layouts, language, components, and branding.
 
@@ -42,8 +44,9 @@ These are inspiration sources, not templates to copy. AFOS will use original lay
 - Warm neutral surfaces reduce glare and distinguish AFOS from generic blue SaaS dashboards.
 - Typography should be direct, compact, and readable on inexpensive Android devices.
 - Motion remains minimal and respects reduced-motion preferences.
+- The public site uses editorial-scale typography, cinematic transport imagery, restrained pill actions, modular narrative sections, and generous space inspired by contemporary award-site composition.
+- Operational screens remain more compact than the public site; visual drama must never obscure actions, statuses, or exceptions.
 
 ## Validation rule
 
 Visual quality does not validate usability. Every important workflow must be tested with representative users using realistic tasks before pilot approval.
-
