@@ -18,12 +18,11 @@ export function CreateRequestForm({ action }: { action: Action }) {
     <form className="request-form" action={formAction}>
       <div className="request-help"><strong>You can complete this for a customer on the phone.</strong><span>Ask only the questions shown. A container number and weight can be added later.</span></div>
 
-      <fieldset><legend><span>1</span><div><strong>What is moving?</strong><small>Tell us about the container.</small></div></legend>
-        <div className="request-fields">
-          <label className="wide"><span>Customer or company name</span><input name="customerName" required minLength={2} autoComplete="organization" placeholder="Example: Amara Trading" /></label>
-          <fieldset className="choice-group"><legend>Movement</legend><label><input type="radio" name="movementType" value="import" defaultChecked /><span>Import<br/><small>From port to customer</small></span></label><label><input type="radio" name="movementType" value="export" /><span>Export<br/><small>To the port</small></span></label><label><input type="radio" name="movementType" value="empty_return" /><span>Empty return<br/><small>Return an empty container</small></span></label></fieldset>
-          <fieldset className="choice-group compact"><legend>Container size</legend><label><input type="radio" name="containerSize" value="20ft" defaultChecked /><span>20 foot</span></label><label><input type="radio" name="containerSize" value="40ft" /><span>40 foot</span></label></fieldset>
-          <label><span>Number of containers</span><input name="quantity" type="number" inputMode="numeric" min={1} max={100} defaultValue={1} required /></label>
+      <fieldset><legend><span>1</span><div><strong>Tell us about the container</strong><small>Enter the size and how many containers are moving.</small></div></legend>
+        <div className="request-fields request-fields-single">
+          <label><span>Customer or company name</span><input name="customerName" required minLength={2} autoComplete="organization" placeholder="Example: Amara Trading" /></label>
+          <label><span>What size is the container?</span><small className="field-help">Type the size or select a common size.</small><input name="containerSize" required minLength={2} maxLength={40} list="container-size-options" placeholder="Example: 20 foot" /><datalist id="container-size-options"><option value="10 foot" /><option value="20 foot" /><option value="40 foot" /><option value="45 foot" /></datalist></label>
+          <label><span>How many containers are moving?</span><small className="field-help">Type the number or select a suggested amount.</small><input name="quantity" type="number" inputMode="numeric" min={1} max={100} defaultValue={1} list="container-quantity-options" required /><datalist id="container-quantity-options"><option value="1" /><option value="2" /><option value="5" /><option value="10" /></datalist></label>
           <label><span>Container number <small>Optional</small></span><input name="containerNumber" autoCapitalize="characters" placeholder="Example: MSKU1234567" /></label>
           <label><span>Type of goods <small>Optional</small></span><input name="cargoCategory" placeholder="Example: Rice, cement, household goods" /></label>
           <label><span>Approximate weight in kg <small>Optional</small></span><input name="estimatedWeightKg" type="number" inputMode="decimal" min="1" max="100000" placeholder="Example: 24000" /></label>

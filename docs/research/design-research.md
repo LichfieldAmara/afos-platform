@@ -80,3 +80,6 @@ Decisions for the AFOS transport-request journey:
 - Explain the next action before submission and use specific correction messages when information is missing.
 - Use mobile input types, autofill hints, large targets, and click-to-call links.
 - Do not add a long wizard, mandatory account registration, automatic quotation, file uploads, customs status, or payment questions to the first request interaction.
+- After live founder review, remove the separate import/export/empty-return classification from first intake: pickup and delivery already communicate direction more naturally.
+- Ask for container size with a type-or-select control and common suggestions, without restricting genuine requests to only 20-foot and 40-foot equipment.
+- Ask quantity immediately after size with a numeric type-or-select control; keep both questions in a single vertical reading sequence.

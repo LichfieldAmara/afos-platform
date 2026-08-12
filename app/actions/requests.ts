@@ -10,8 +10,7 @@ export type RequestActionState = { message: string; success?: boolean; reference
 
 const requestSchema = z.object({
   customerName: z.string().trim().min(2, "Enter the customer or company name."),
-  movementType: z.enum(["import", "export", "empty_return", "other"]),
-  containerSize: z.enum(["20ft", "40ft"]),
+  containerSize: z.string().trim().min(2, "Enter or select the container size.").max(40, "Use a shorter container size."),
   quantity: z.coerce.number().int().min(1, "Enter at least one container.").max(100, "Enter 100 containers or fewer."),
   containerNumber: z.string().trim().max(30),
   cargoCategory: z.string().trim().max(100),
@@ -32,7 +31,7 @@ export async function createTransportRequest(
 ): Promise<RequestActionState> {
   await requirePlatformRole(["afos_operations", "afos_administrator"]);
   const parsed = requestSchema.safeParse({
-    customerName: formData.get("customerName"), movementType: formData.get("movementType"),
+    customerName: formData.get("customerName"),
     containerSize: formData.get("containerSize"), quantity: formData.get("quantity"),
     containerNumber: formData.get("containerNumber") ?? "", cargoCategory: formData.get("cargoCategory") ?? "",
     estimatedWeightKg: formData.get("estimatedWeightKg") ?? "", pickupLocation: formData.get("pickupLocation"),
@@ -43,7 +42,7 @@ export async function createTransportRequest(
 
   const supabase = await createServerSupabaseClient();
   const { data, error } = await supabase.rpc("create_transport_request_for_customer", {
-    customer_name: parsed.data.customerName, movement_type: parsed.data.movementType,
+    customer_name: parsed.data.customerName,
     container_size: parsed.data.containerSize, container_quantity: parsed.data.quantity,
     container_number: parsed.data.containerNumber, cargo_category: parsed.data.cargoCategory,
     estimated_weight_kg: parsed.data.estimatedWeightKg === "" ? null : parsed.data.estimatedWeightKg,

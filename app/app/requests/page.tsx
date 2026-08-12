@@ -19,7 +19,7 @@ export default async function RequestsPage() {
       {requests.length === 0 ? <div className="records-empty"><strong>No transport requests yet</strong><p>The first submitted request will appear here with its reference and next status.</p></div> :
       <div className="request-list">{requests.map((request) => <article className="request-record" key={request.id}>
         <div><span className={`status-chip status-${request.status}`}>{request.status.replaceAll("_", " ")}</span><strong>{request.reference}</strong><small>{request.customer}</small></div>
-        <div><span>Container</span><strong>{request.quantity} × {request.containerSize}</strong><small>{request.movementType.replaceAll("_", " ")}</small></div>
+        <div><span>Container</span><strong>{request.quantity} × {request.containerSize}</strong></div>
         <div className="request-route"><span>Route</span><strong>{request.pickup} <i>→</i> {request.destination}</strong><small>Pickup {new Intl.DateTimeFormat("en", { dateStyle: "medium", timeStyle: "short" }).format(new Date(request.requiredAt))}</small></div>
         <div><span>Call</span><strong>{request.contactName}</strong><a href={`tel:${request.contactPhone}`}>{request.contactPhone}</a></div>
       </article>)}</div>}
