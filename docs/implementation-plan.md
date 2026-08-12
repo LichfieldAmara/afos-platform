@@ -430,6 +430,16 @@ The first controlled Operations workflow now follows one traceable sequence:
 6. Create an assigned trip with database protection against overlapping truck, trailer, or driver schedules.
 
 During the controlled pilot, AFOS Operations may record capacity and provider responses received by phone. This avoids making provider account onboarding a prerequisite for validating the operational transaction, while retaining authorization and audit history.
+
+### Revised pilot access and assignment model
+
+- A first-time customer can submit a public transport request without creating an account.
+- Submission returns a request reference and a private tracking link. Only a hash of the tracking code is stored.
+- Public tracking shows a deliberately limited status view and never exposes Operations records or other requests.
+- Route tariffs provide estimates for configured routes; unknown routes clearly require price confirmation.
+- Operations records verified transport-company availability by container size, quantity, dates, and area.
+- Matching assigns the transport company first. Truck, trailer, and driver details are dispatch information added later.
+- Drivers do not require AFOS accounts during the controlled pilot.
 - Consolidate metrics and qualitative feedback weekly.
 - Record failed requests and root causes.
 - Track manual intervention and reported off-platform behaviour.

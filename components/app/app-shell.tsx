@@ -3,7 +3,7 @@ import { signOut } from "@/app/actions/auth";
 
 const navigation = [
   ["Overview", "/app"], ["Requests", "/app/requests"], ["Capacity", "/app/capacity"],
-  ["Offers", "/app/offers"], ["Trips", "/app/trips"], ["Exceptions", "/app/exceptions"], ["Providers", "/app/providers"],
+  ["Matching", "/app/matching"], ["Offers", "/app/offers"], ["Trips", "/app/trips"], ["Exceptions", "/app/exceptions"], ["Providers", "/app/providers"],
 ];
 
 export function AppShell({ active, email, children }: { active: string; email: string; children: React.ReactNode }) {

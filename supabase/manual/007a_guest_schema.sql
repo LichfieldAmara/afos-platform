@@ -1,0 +1,17 @@
+begin;
+alter table public.transport_requests alter column requested_by drop not null;
+alter table public.transport_requests add column if not exists tracking_token_hash text unique;
+alter table public.transport_requests add column if not exists estimated_price numeric check (estimated_price is null or estimated_price >= 0);
+alter table public.transport_requests add column if not exists price_status text not null default 'confirmation_required' check (price_status in ('estimated','confirmation_required','confirmed'));
+alter table public.transport_requests add column if not exists contact_email text;
+create table public.route_tariffs (id uuid primary key default gen_random_uuid(),pickup_pattern text not null,destination_pattern text not null,container_size text not null,base_price numeric not null check(base_price>=0),currency text not null default 'SLE',additional_container_price numeric not null default 0 check(additional_container_price>=0),active boolean not null default true,created_at timestamptz not null default now(),unique(pickup_pattern,destination_pattern,container_size));
+alter table public.route_tariffs enable row level security;
+create policy tariffs_public_read on public.route_tariffs for select using(active=true);
+create policy tariffs_admin_all on public.route_tariffs for all using(public.has_platform_role('afos_administrator')) with check(public.has_platform_role('afos_administrator'));
+create table public.provider_availability (id uuid primary key default gen_random_uuid(),provider_id uuid not null references public.organizations(id) on delete restrict,container_size text not null,quantity integer not null check(quantity>0),available_from date not null,available_until date not null,operating_area text,notes text,status text not null default 'available' check(status in('available','reserved','unavailable')),recorded_by uuid not null references auth.users(id),created_at timestamptz not null default now(),check(available_until>=available_from));
+alter table public.provider_availability enable row level security;
+create policy provider_availability_operations on public.provider_availability for all using(public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check(public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+create table public.company_assignments (id uuid primary key default gen_random_uuid(),request_id uuid not null unique references public.transport_requests(id) on delete restrict,provider_id uuid not null references public.organizations(id) on delete restrict,availability_id uuid references public.provider_availability(id),assigned_by uuid not null references auth.users(id),status text not null default 'assigned' check(status in('assigned','confirmed','cancelled')),assigned_at timestamptz not null default now());
+alter table public.company_assignments enable row level security;
+create policy assignments_operations on public.company_assignments for all using(public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator')) with check(public.has_platform_role('afos_operations') or public.has_platform_role('afos_administrator'));
+commit;

@@ -17,13 +17,13 @@ export default function Home() {
         <div className="marketing-overlay" />
         <nav className="marketing-nav" aria-label="Public navigation">
           <Link className="brand" href="/"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>African Freight Operating System</small></span></Link>
-          <div className="marketing-links"><a href="#platform">Platform</a><a href="#workflow">How it works</a><Link className="nav-login" href="/login">Pilot sign in <span aria-hidden="true">↗</span></Link></div>
+          <div className="marketing-links"><a href="#platform">Platform</a><Link href="/request">Request transport</Link><Link className="nav-login" href="/login">Operations sign in <span aria-hidden="true">↗</span></Link></div>
         </nav>
         <div className="marketing-hero-content">
           <span className="marketing-kicker">Container transport coordination · Sierra Leone</span>
           <h1>Moving container<br />transport from<br />fragmented calls to one<br />clear workflow.</h1>
           <p>Connect genuine container-transport demand with verified available trucks, trailers and drivers—then coordinate every movement through delivery.</p>
-          <div className="marketing-actions"><Link className="marketing-primary" href="/login">Enter pilot platform <span>↗</span></Link><a className="marketing-secondary" href="#workflow">See the coordination flow</a></div>
+          <div className="marketing-actions"><Link className="marketing-primary" href="/request">Request transport <span>↗</span></Link><Link className="marketing-secondary" href="/track">Track a request</Link></div>
         </div>
         <div className="hero-proof"><div><span>01</span><strong>Real demand</strong></div><div><span>02</span><strong>Verified capacity</strong></div><div><span>03</span><strong>Traceable delivery</strong></div></div>
       </section>

@@ -22,6 +22,9 @@ const requiredTables = [
   "deliveries",
   "notifications",
   "audit_events",
+  "route_tariffs",
+  "provider_availability",
+  "company_assignments",
 ];
 
 export async function GET() {
