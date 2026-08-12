@@ -21,7 +21,7 @@ export default function Home() {
         </nav>
         <div className="marketing-hero-content">
           <span className="marketing-kicker">Container transport coordination · Sierra Leone</span>
-          <h1>Capacity exists.<br />AFOS makes it move.</h1>
+          <h1>Moving container<br />transport from<br />fragmented calls to one<br />clear workflow.</h1>
           <p>Connect genuine container-transport demand with verified available trucks, trailers and drivers—then coordinate every movement through delivery.</p>
           <div className="marketing-actions"><Link className="marketing-primary" href="/login">Enter pilot platform <span>↗</span></Link><a className="marketing-secondary" href="#workflow">See the coordination flow</a></div>
         </div>

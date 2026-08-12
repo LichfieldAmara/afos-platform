@@ -12,6 +12,9 @@
 - [Dribbble freight dashboards](https://dribbble.com/search/freight-dashboard)
 - [Awwwards transport and logistics examples](https://www.awwwards.com/sites/search/?text=transport%20logistics)
 - [21st.dev component community](https://21st.dev/)
+- [Behance logistics and transport references](https://www.behance.net/search/projects/logistics%20website)
+- [Dribbble logistics web references](https://dribbble.com/tags/logistic-web-design)
+- [Pinterest logistics website references](https://www.pinterest.com/search/pins/?q=logistics%20website%20design)
 
 These are inspiration sources, not templates to copy. AFOS will use original layouts, language, components, and branding.
 
@@ -46,6 +49,14 @@ These are inspiration sources, not templates to copy. AFOS will use original lay
 - Motion remains minimal and respects reduced-motion preferences.
 - The public site uses editorial-scale typography, cinematic transport imagery, restrained pill actions, modular narrative sections, and generous space inspired by contemporary award-site composition.
 - Operational screens remain more compact than the public site; visual drama must never obscure actions, statuses, or exceptions.
+
+### Refined public-site direction
+
+- Preserve the approved positioning statement: “Moving container transport from fragmented calls to one clear workflow.”
+- Use a bold Inter-style grotesk headline with tight tracking and deliberate line breaks.
+- Lead with container, trailer, truck, and port imagery rather than abstract software artwork.
+- Keep the deep operational green, warm off-white, and safety orange system.
+- Borrow hierarchy and confidence from premium references, but avoid generic freight-company patterns such as invented statistics, testimonials, or quotation widgets during the controlled pilot.
 
 ## Validation rule
 
