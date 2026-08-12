@@ -12,7 +12,7 @@ The initial product will be a mobile-first web application connecting genuine co
 
 ## Current status
 
-The project is in pre-build product discovery and specification. Application scaffolding has not started.
+The project is in pre-build product discovery and specification. A minimal Next.js application foundation is available for Vercel deployment; operational features and Supabase integration have not started.
 
 The working technical direction is:
 
@@ -26,4 +26,3 @@ See the Implementation Plan for phases, delivery gates, responsibilities, and cu
 ## Development principle
 
 > Build narrowly. Test with real transport. Measure relentlessly. Expand only on evidence.
-

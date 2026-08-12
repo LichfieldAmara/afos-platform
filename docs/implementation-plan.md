@@ -508,7 +508,7 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | Phase | Status | Gate result | Notes |
 |---|---|---|---|
 | 0 — Preserve discovery | In progress | Pending | Founder leaves AGL this week |
-| 1 — Ownership and infrastructure | Not started | Pending | GitHub/Vercel/Supabase accounts required |
+| 1 — Ownership and infrastructure | In progress | Pending | GitHub connected; Next.js foundation ready for Vercel; Supabase setup pending |
 | 2 — Transaction model | Not started | Pending | Roles and states require review |
 | 3 — Product/operations specification | Started | Pending | PRD v0.1 created |
 | 4 — Wireframes and validation | Not started | Pending | — |
@@ -527,10 +527,10 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | 12 Aug 2026 | Maintain a Concept Note, PRD, and Implementation Plan as living documents | Approved in principle | Founder |
 | 12 Aug 2026 | Put the phased delivery process in the Implementation Plan | Approved in principle | Founder |
 | 12 Aug 2026 | Use a mobile-first web application with GitHub, Vercel, and Supabase | Working decision | Founder |
+| 12 Aug 2026 | Use Next.js 16 with a verified Webpack production build for the initial Vercel foundation | Implemented | Founder / technical partner |
 
 ## 22. Revision history
 
 | Date | Version | Change | Author/owner |
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial phased implementation plan | AFOS / pending review |
-
