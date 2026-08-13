@@ -12,7 +12,7 @@ The initial product will be a mobile-first web application connecting genuine co
 
 ## Current status
 
-The project is in pre-build product discovery and specification. A minimal Next.js application foundation is available for Vercel deployment; operational features and Supabase integration have not started.
+AFOS now has a deployed, test-data-only operational vertical slice. It supports public no-account transport requests and private tracking, Operations authentication, provider verification, registered fleet and availability, company assignment, trip milestones, exceptions, proof of delivery, and audited completion. Product discovery, real-user validation, pilot rules, and commercial/legal readiness remain in progress.
 
 The working technical direction is:
 
@@ -22,6 +22,8 @@ The working technical direction is:
 - GitHub for source control and review
 
 See the Implementation Plan for phases, delivery gates, responsibilities, and current status.
+
+Every agreed feature must update the living Concept Note, PRD, and Implementation Plan where it changes the product model, requirements, or delivery status. Documentation, tests, and production verification are part of the definition of done.
 
 ## Development principle
 

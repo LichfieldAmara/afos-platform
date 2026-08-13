@@ -5,7 +5,7 @@
 **Product:** Container Transport Capacity Coordination Platform  
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.2
+**Version:** 0.3
 **Last updated:** 13 August 2026
 
 ## 1. Executive summary
@@ -173,6 +173,27 @@ The pilot will answer:
 
 It will test demand, supply, trust, matching, execution, adoption, and commercial value. The primary measure will be the proportion of requested container movements successfully matched, allocated, and completed through AFOS.
 
+## 10A. Product implemented to date
+
+As of 13 August 2026, AFOS has a deployed, test-data-only operational vertical slice. Implemented capabilities include:
+
+- A public, mobile-responsive AFOS homepage explaining the container-transport proposition.
+- Secure Operations authentication, sign-out, password recovery, role checks, and founder-administrator bootstrap.
+- A no-account customer request wizard with container details, quantity, route, required date, cargo information, and contact details.
+- Route-based estimated pricing where a tariff exists and an explicit price-confirmation state where one does not.
+- A request confirmation containing a reference, private tracking credentials, downloadable receipt, and optional automatic email when an email service is configured.
+- Private customer tracking with request, price, assigned provider, trip milestones, exceptions, and delivery outcome.
+- Operations-assisted recovery that replaces lost tracking access after identity checks and invalidates the previous code.
+- Registration and verification of transport companies and individual vehicle owners.
+- Separate truck and trailer records, document-expiry information, operational availability, and return-to-service dates.
+- Registered-fleet capacity calculation, compatibility checking, schedule conflict prevention, and next-available-date handling.
+- A unified Operations request workspace for price confirmation, provider assignment, resource selection, trip execution, exceptions, delivery, and activity history.
+- Controlled trip status progression, exception reporting and resolution, private proof-of-delivery upload, recipient capture, and completion.
+- Database authorization, Row Level Security, narrow public database functions, hashed tracking secrets, audit history, and automated workflow tests.
+- Version-controlled delivery through GitHub, Vercel, and Supabase, with a live application/database/schema health check.
+
+This is evidence of software implementation, not evidence that the commercial or operational model has yet been validated through a controlled live pilot.
+
 ## 11. Current evidence and relationships
 
 - The founder has direct experience as a truck supervisor at AGL.
@@ -229,3 +250,4 @@ This is a living document. Material changes should update the version, date, and
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial consolidated concept note | Founder / pending review |
 | 13 Aug 2026 | 0.2 | Recorded no-account demand, company/individual fleet registration, vehicle-led capacity, operations assignment, and alternative-date response | Founder / technical partner |
+| 13 Aug 2026 | 0.3 | Added the complete implemented-product baseline from infrastructure and identity through request, tracking, operations, trip, exception, and delivery workflows | Founder / technical partner |

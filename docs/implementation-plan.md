@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.2
+**Version:** 0.3
 **Last updated:** 13 August 2026
 
 ## 1. Purpose
@@ -24,6 +24,8 @@ No phase is complete merely because software was written. Each phase has a defin
 - Real user feedback is collected early and repeatedly.
 - Operational, security, legal, and commercial readiness are part of delivery.
 - Scope expands only when evidence justifies it.
+- Every agreed feature must update the Concept Note when it changes the product or operating model, the PRD when it changes requirements or business rules, and this Implementation Plan when it changes delivery status or sequencing.
+- Documentation updates, automated checks, and production verification are part of a feature's definition of done; a feature is not recorded as complete without them.
 
 ## 3. Responsibilities
 
@@ -544,6 +546,29 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | 10 — Live pilot | Not started | Pending | — |
 | 11 — Post-pilot decision | Not started | Pending | — |
 
+### Implemented release baseline — 13 August 2026
+
+The current production-tested software baseline contains:
+
+1. GitHub source control, automatic Vercel production deployment, Supabase database/auth/storage, versioned migrations, and health verification.
+2. Public AFOS homepage and responsive visual system.
+3. Operations authentication, password recovery, protected routes, platform authorization, and administrator bootstrap.
+4. Provider registration, company/individual-owner distinction, contacts, verification workflow, vehicles, documents, and availability dates.
+5. Operations-created requests and a public no-account customer request wizard.
+6. Flexible container-size entry, quantity selection, cargo/contact/route/date capture, and assisted stepper presentation.
+7. Route-tariff estimates, manual price confirmation, and customer-visible price status.
+8. Secure tracking reference/token issuance, downloadable receipt, optional configured email delivery, private tracking, and access recovery.
+9. Registered-fleet capacity, truck/trailer compatibility, expired/inactive/unavailable exclusion, and overlap prevention.
+10. Next-available-date proposal with private customer acceptance or rejection.
+11. Request queue and unified request workspace with search, customer contact, price, matching, assignment, resources, and activity history.
+12. Company-first assignment followed by truck, trailer, and provider-managed driver selection.
+13. Trip creation and forward-only movement milestones with customer-visible status events.
+14. Exception reporting/resolution and operational urgency visibility.
+15. Delivery recipient/outcome recording, private evidence upload, completion rules, and tracking outcome.
+16. Server-side validation, Row Level Security, narrow anonymous access, hashed secrets, audit events, and automated domain/workflow/security tests.
+
+The baseline does not mark the full MVP or pilot as complete. Real participant validation, operational rules, legal/commercial readiness, notification configuration, and remaining approved MVP scope continue under Phases 7–9.
+
 ## 21. Decision log
 
 | Date | Decision | Status | Owner |
@@ -559,6 +584,7 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | 13 Aug 2026 | Register transport companies and individual owners and calculate capacity from actual vehicles | Implemented | Founder / technical partner |
 | 13 Aug 2026 | Use Operations-led assignment and defer mandatory provider and driver accounts during the controlled pilot | Implemented pilot model | Founder / technical partner |
 | 13 Aug 2026 | Propose a future date when fleet is engaged and let the customer accept or decline | Implemented | Founder / technical partner |
+| 13 Aug 2026 | Make living-document updates part of the definition of done for every agreed feature | Approved delivery rule | Founder / technical partner |
 
 ## 22. Revision history
 
@@ -566,3 +592,4 @@ Dates and cost estimates will be added only after the transaction model, backlog
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial phased implementation plan | AFOS / pending review |
 | 13 Aug 2026 | 0.2 | Recorded the implemented guest, provider fleet, capacity, assignment, and alternative-date workflow; corrected phase status | Founder / technical partner |
+| 13 Aug 2026 | 0.3 | Audited and recorded the complete implemented baseline; made documentation maintenance a formal definition-of-done requirement | Founder / technical partner |

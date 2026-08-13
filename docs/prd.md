@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.2
+**Version:** 0.3
 **Last updated:** 13 August 2026
 
 ## 1. Purpose
@@ -229,6 +229,33 @@ The system must:
 - AFOS operations may intervene, but intervention must be traceable.
 - Prices and fees, when recorded, must retain currency, authorizer, and change history.
 
+## 7A. Implemented functional baseline
+
+The following capabilities are implemented and verified in the current web application. They remain subject to real-user and controlled-pilot validation.
+
+| Area | Implemented behaviour |
+|---|---|
+| Public experience | Responsive positioning homepage with links to request transport, track a request, and sign in to Operations |
+| Operations identity | Supabase sign-in/sign-out, password recovery/reset, protected routes, platform roles, and administrator bootstrap |
+| Guest demand intake | No account required; short wizard captures container size/quantity, container and cargo details, pickup, destination, date, and customer contact |
+| Pricing | Configured route tariffs can return an estimate; Operations can confirm or amend the customer-visible price with audit history |
+| Request receipt | Submission issues a reference and private tracking token, provides a downloadable receipt, and can send email when the email provider is configured |
+| Customer tracking | Secret reference/token lookup exposes only customer-safe status, price, provider, movement events, exceptions, and delivery outcome |
+| Tracking recovery | Operations can verify a caller, regenerate access, invalidate the old token, and record the action |
+| Provider onboarding | Operations can register a company or individual owner, declared vehicle count, contacts, operating areas, and verification decision |
+| Fleet records | Separate globally unique trucks and trailers, size compatibility, document dates, active/inactive state, reason, and available-again date |
+| Capacity | Available units derive from eligible truck–trailer pairs; expired, inactive, unavailable, or schedule-conflicting assets are excluded |
+| Alternative date | When capacity is engaged, the system records a future availability proposal that the customer can accept or decline privately |
+| Request workspace | One Operations screen covers customer/route data, price, compatible provider matching, assignment, trip setup, exceptions, delivery, recovery, and audit activity |
+| Assignment and dispatch | Only verified providers with enough compatible fleet can be assigned; specific provider resources are selected for a scheduled trip |
+| Trip execution | Forward-only milestones from assigned through destination, with timestamps, notes, and customer-visible updates |
+| Exceptions | Operations can report and resolve operational problems; unresolved exceptions remain visible and can block completion |
+| Delivery | Recipient and outcome capture, private evidence upload, completion controls, and customer-visible delivery result |
+| Security and integrity | Server authorization, Row Level Security, hashed tracking tokens, restricted public functions, allocation conflict controls, and append-oriented audit events |
+| Delivery platform | GitHub source control, automatic Vercel deployment, Supabase database/auth/storage, schema migrations, health endpoint, tests, lint, and production build checks |
+
+Not yet validated or completed merely by this baseline: a live commercial pilot, authoritative port/customs integrations, GPS, payments and commissions, comprehensive notifications, legal/insurance standards, and proven multi-provider fulfilment at operating scale.
+
 ## 8. Essential data entities
 
 - User
@@ -378,3 +405,4 @@ A request is not automatically added to the MVP because one participant asks for
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial consolidated MVP PRD | AFOS / pending review |
 | 13 Aug 2026 | 0.2 | Aligned requirements with the implemented guest request, registered fleet, matching, and alternative-date workflows | Founder / technical partner |
+| 13 Aug 2026 | 0.3 | Added a complete implemented functional baseline and distinguished it from unvalidated and future scope | Founder / technical partner |
