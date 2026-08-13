@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.3
+**Version:** 0.4
 **Last updated:** 13 August 2026
 
 ## 1. Purpose
@@ -569,6 +569,15 @@ The current production-tested software baseline contains:
 
 The baseline does not mark the full MVP or pilot as complete. Real participant validation, operational rules, legal/commercial readiness, notification configuration, and remaining approved MVP scope continue under Phases 7–9.
 
+### Operations consolidation completed — 13 August 2026
+
+1. Replaced legacy dashboard counts with eight workflow-specific operational metrics and an exception-first priority queue.
+2. Reduced navigation to five active work areas and redirected retired Capacity, Matching, and Offers routes.
+3. Consolidated provider and fleet visibility with paired capacity, engagement, unavailable/expired assets, and declared-versus-registered warnings.
+4. Made matching explainable by showing all verified providers, available units, blocking reason, and next known availability while rechecking eligibility at assignment.
+5. Added a dedicated open-first Exceptions workspace with customer/provider context, replacement needs, resolution, and history.
+6. Re-ran automated regression, lint, production build, deployment, public-route, protected-route, and health verification; maintained the living documents as part of completion.
+
 ## 21. Decision log
 
 | Date | Decision | Status | Owner |
@@ -585,6 +594,7 @@ The baseline does not mark the full MVP or pilot as complete. Real participant v
 | 13 Aug 2026 | Use Operations-led assignment and defer mandatory provider and driver accounts during the controlled pilot | Implemented pilot model | Founder / technical partner |
 | 13 Aug 2026 | Propose a future date when fleet is engaged and let the customer accept or decline | Implemented | Founder / technical partner |
 | 13 Aug 2026 | Make living-document updates part of the definition of done for every agreed feature | Approved delivery rule | Founder / technical partner |
+| 13 Aug 2026 | Consolidate Operations around requests, registered fleet, trips, and exceptions and retire manual capacity/offer navigation | Implemented | Founder / technical partner |
 
 ## 22. Revision history
 
@@ -593,3 +603,4 @@ The baseline does not mark the full MVP or pilot as complete. Real participant v
 | 12 Aug 2026 | 0.1 | Initial phased implementation plan | AFOS / pending review |
 | 13 Aug 2026 | 0.2 | Recorded the implemented guest, provider fleet, capacity, assignment, and alternative-date workflow; corrected phase status | Founder / technical partner |
 | 13 Aug 2026 | 0.3 | Audited and recorded the complete implemented baseline; made documentation maintenance a formal definition-of-done requirement | Founder / technical partner |
+| 13 Aug 2026 | 0.4 | Completed and verified the six-feature Operations consolidation block | Founder / technical partner |

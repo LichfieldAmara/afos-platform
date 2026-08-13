@@ -5,7 +5,7 @@
 **Product:** Container Transport Capacity Coordination Platform  
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.3
+**Version:** 0.4
 **Last updated:** 13 August 2026
 
 ## 1. Executive summary
@@ -188,6 +188,10 @@ As of 13 August 2026, AFOS has a deployed, test-data-only operational vertical s
 - Separate truck and trailer records, document-expiry information, operational availability, and return-to-service dates.
 - Registered-fleet capacity calculation, compatibility checking, schedule conflict prevention, and next-available-date handling.
 - A unified Operations request workspace for price confirmation, provider assignment, resource selection, trip execution, exceptions, delivery, and activity history.
+- A consolidated Operations dashboard focused on new demand, price confirmation, provider assignment, available and engaged fleet, active trips, exceptions, and completed deliveries.
+- Simplified Operations navigation centred on Overview, Requests, Providers & Fleet, Trips, and Exceptions; older manual Capacity, Matching, and Offers screens redirect into the consolidated workflow.
+- Provider matching that displays every verified provider, the available compatible units, the reason a provider cannot currently serve the request, and a next date where one can be determined.
+- A dedicated Exceptions workspace with affected request, customer contact, provider/trip context, replacement-capacity warning, resolution action, and resolved history.
 - Controlled trip status progression, exception reporting and resolution, private proof-of-delivery upload, recipient capture, and completion.
 - Database authorization, Row Level Security, narrow public database functions, hashed tracking secrets, audit history, and automated workflow tests.
 - Version-controlled delivery through GitHub, Vercel, and Supabase, with a live application/database/schema health check.
@@ -251,3 +255,4 @@ This is a living document. Material changes should update the version, date, and
 | 12 Aug 2026 | 0.1 | Initial consolidated concept note | Founder / pending review |
 | 13 Aug 2026 | 0.2 | Recorded no-account demand, company/individual fleet registration, vehicle-led capacity, operations assignment, and alternative-date response | Founder / technical partner |
 | 13 Aug 2026 | 0.3 | Added the complete implemented-product baseline from infrastructure and identity through request, tracking, operations, trip, exception, and delivery workflows | Founder / technical partner |
+| 13 Aug 2026 | 0.4 | Consolidated Operations dashboard/navigation, fleet visibility, explainable matching, and exception management | Founder / technical partner |
