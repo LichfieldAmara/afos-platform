@@ -4,8 +4,8 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.1  
-**Last updated:** 12 August 2026
+**Version:** 0.2
+**Last updated:** 13 August 2026
 
 ## 1. Purpose
 
@@ -423,10 +423,10 @@ Validate AFOS using real demand, verified capacity, and completed container move
 The first controlled Operations workflow now follows one traceable sequence:
 
 1. Capture a transport request using the assisted three-step intake.
-2. Register a verified provider's active truck, trailer, driver, and declared availability.
-3. Match a request to compatible capacity using explicit size, date, quantity, and verification checks.
-4. Send an offer and record the provider's phone or platform response.
-5. Allocate active provider resources only after acceptance.
+2. Register either a transport company or individual vehicle owner, including declared fleet size, contact, operating areas, and verification state.
+3. Register each truck and trailer separately, including document expiry, operational status, and expected return date when unavailable.
+4. Calculate compatible capacity from verified active truck–trailer pairs and reject schedule conflicts.
+5. Assign an eligible provider through Operations and allocate specific resources for dispatch.
 6. Create an assigned trip with database protection against overlapping truck, trailer, or driver schedules.
 
 During the controlled pilot, AFOS Operations may record capacity and provider responses received by phone. This avoids making provider account onboarding a prerequisite for validating the operational transaction, while retaining authorization and audit history.
@@ -437,9 +437,10 @@ During the controlled pilot, AFOS Operations may record capacity and provider re
 - Submission returns a request reference and a private tracking link. Only a hash of the tracking code is stored.
 - Public tracking shows a deliberately limited status view and never exposes Operations records or other requests.
 - Route tariffs provide estimates for configured routes; unknown routes clearly require price confirmation.
-- Operations records verified transport-company availability by container size, quantity, dates, and area.
-- Matching assigns the transport company first. Truck, trailer, and driver details are dispatch information added later.
+- Registered trucks, compatible trailers, document validity, manual availability, and trip schedules are the source of capacity truth.
+- Matching assigns the transport company or individual owner first. Specific truck, trailer, and driver details are dispatch information added later.
 - Drivers do not require AFOS accounts during the controlled pilot.
+- When sufficient capacity is engaged, tracking shows the next available date and lets the customer accept or decline it securely.
 - Consolidate metrics and qualitative feedback weekly.
 - Record failed requests and root causes.
 - Track manual intervention and reported off-platform behaviour.
@@ -533,11 +534,11 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | 0 — Preserve discovery | In progress | Pending | Discovery toolkit created; interviews and authorized evidence remain founder/participant actions |
 | 1 — Ownership and infrastructure | Completed | Passed | GitHub, Vercel, and Central Europe Supabase development environment connected; live schema check passed |
 | 2 — Transaction model | In progress | Pending | Working role matrix and tested state graphs created; operational validation required |
-| 3 — Product/operations specification | Started | Pending | PRD v0.1 created |
+| 3 — Product/operations specification | In progress | Pending | Concept Note and PRD v0.2 aligned with implemented pilot model; operational validation remains |
 | 4 — Wireframes and validation | Not started | Pending | — |
 | 5 — Data/API/security design | In progress | Pending | Initial schema and administrator bootstrap verified live; incremental audit insert policy awaiting application |
-| 6 — Vertical slice | Not started | Pending | — |
-| 7 — Complete MVP | Not started | Pending | — |
+| 6 — Vertical slice | Completed | Passed | Guest request, secure tracking, provider registration, registered-fleet matching, trip execution, exceptions, and delivery pass automated and production-build checks |
+| 7 — Complete MVP | In progress | Pending | Core operational features implemented; remaining approved pilot scope and real-user validation still required |
 | 8 — Readiness testing | Not started | Pending | — |
 | 9 — Pilot preparation | Not started | Pending | — |
 | 10 — Live pilot | Not started | Pending | — |
@@ -554,9 +555,14 @@ Dates and cost estimates will be added only after the transaction model, backlog
 | 12 Aug 2026 | Use https://afos-platform.vercel.app as the initial Vercel production address | Implemented | Founder |
 | 12 Aug 2026 | Host the initial Supabase development project in Central Europe and use test data only | Implemented | Founder |
 | 12 Aug 2026 | Defer the first operational schema migration until roles and transaction states are approved | Approved | Founder / technical partner |
+| 13 Aug 2026 | Allow customer requests without mandatory accounts and protect tracking with private credentials | Implemented | Founder / technical partner |
+| 13 Aug 2026 | Register transport companies and individual owners and calculate capacity from actual vehicles | Implemented | Founder / technical partner |
+| 13 Aug 2026 | Use Operations-led assignment and defer mandatory provider and driver accounts during the controlled pilot | Implemented pilot model | Founder / technical partner |
+| 13 Aug 2026 | Propose a future date when fleet is engaged and let the customer accept or decline | Implemented | Founder / technical partner |
 
 ## 22. Revision history
 
 | Date | Version | Change | Author/owner |
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial phased implementation plan | AFOS / pending review |
+| 13 Aug 2026 | 0.2 | Recorded the implemented guest, provider fleet, capacity, assignment, and alternative-date workflow; corrected phase status | Founder / technical partner |

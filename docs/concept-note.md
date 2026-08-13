@@ -5,8 +5,8 @@
 **Product:** Container Transport Capacity Coordination Platform  
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.1  
-**Last updated:** 12 August 2026
+**Version:** 0.2
+**Last updated:** 13 August 2026
 
 ## 1. Executive summary
 
@@ -42,18 +42,20 @@ The result can include delayed movements, lost business, customer frustration, i
 
 AFOS will provide a trusted workflow through which:
 
-1. A customer or freight forwarder submits a genuine container-transport request.
-2. Verified providers declare suitable operational capacity.
-3. AFOS identifies and coordinates a match.
-4. Providers accept opportunities.
-5. Trucks, trailers, and drivers are allocated.
+1. A customer or freight forwarder submits a genuine container-transport request without being forced to create an account.
+2. AFOS Operations registers and verifies transport companies and individual vehicle owners, including their trucks and compatible trailers.
+3. AFOS calculates suitable capacity from registered, compliant vehicles and their schedules.
+4. AFOS Operations identifies and assigns an available provider; provider responses may initially be coordinated by phone.
+5. Specific trucks and trailers are allocated. A driver may be recorded for dispatch, but a separate driver account is not required during the controlled pilot.
 6. Trips are dispatched and progressed through clear statuses.
 7. Exceptions are recorded and managed.
 8. Delivery is confirmed and the transaction is completed.
 
+If suitable vehicles are engaged, the customer is shown the next supported date and can accept or decline it through their private tracking page.
+
 The core transaction is:
 
-`Demand → Capacity → Match → Accept → Allocate → Dispatch → Move → Deliver → Complete`
+`Guest request → Verified fleet → Availability check → Company assignment → Vehicle allocation → Dispatch → Move → Deliver → Complete`
 
 ## 5. Target users
 
@@ -80,7 +82,7 @@ The core transaction is:
 
 AFOS will begin as a mobile-first responsive web application. It will work in a browser on phones, tablets, and computers. The driver experience will be optimized for inexpensive Android phones, short actions, and inconsistent connectivity.
 
-The first release will use human-assisted matching and operational oversight. It will prioritize traceability and successful transaction completion over automation.
+The first release will use human-assisted matching and operational oversight. AFOS Operations will initially record dispatch and movement updates; a separate driver interface will be introduced only if field validation shows it improves execution. The product will prioritize traceability and successful transaction completion over automation.
 
 The proposed technical foundation is:
 
@@ -138,10 +140,12 @@ The MVP will support:
 - Organization and membership management
 - Provider onboarding and verification
 - Truck, trailer, and driver records
-- Capacity declarations
+- Registered-fleet availability calculated from active trucks, compatible trailers, documents, unavailable dates, and trip schedules
+- Public no-account request submission and secure private tracking
+- Customer acceptance or rejection of a proposed later date
 - Transport requests for 20-foot and 40-foot containers
 - Matching and provider offers
-- Provider acceptance or rejection
+- Operations-led company assignment, with provider response coordinated directly during the pilot
 - Single-provider and multi-provider allocation
 - Dispatch and trip status management
 - Exception recording and resolution
@@ -224,4 +228,4 @@ This is a living document. Material changes should update the version, date, and
 | Date | Version | Change | Decision owner |
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial consolidated concept note | Founder / pending review |
-
+| 13 Aug 2026 | 0.2 | Recorded no-account demand, company/individual fleet registration, vehicle-led capacity, operations assignment, and alternative-date response | Founder / technical partner |

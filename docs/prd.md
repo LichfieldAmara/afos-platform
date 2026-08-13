@@ -4,8 +4,8 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.1  
-**Last updated:** 12 August 2026
+**Version:** 0.2
+**Last updated:** 13 August 2026
 
 ## 1. Purpose
 
@@ -32,11 +32,9 @@ Enable genuine container-transport demand to be matched with verified suitable c
 
 | Role | Primary responsibility |
 |---|---|
-| Customer user | Submit and monitor transport requests |
+| Guest customer | Submit and privately track a transport request without creating an account |
 | Freight forwarder user | Submit and coordinate requests for authorized customers/cargo |
-| Provider manager | Maintain provider records, declare capacity, respond to offers, and allocate assets |
-| Provider dispatcher | Coordinate accepted assignments and driver dispatch |
-| Driver | View assigned trips and submit simple status updates/evidence |
+| Provider contact | Represent a transport company or individual vehicle owner; an AFOS account is not required during the controlled pilot |
 | AFOS operations | Verify supply, coordinate matching, manage allocations, trips, and exceptions |
 | AFOS administrator | Manage access, configuration, suspensions, and audit oversight |
 
@@ -44,12 +42,12 @@ A person may have more than one authorized role, but permissions must always be 
 
 ## 5. Core workflow
 
-1. Customer submits a transport request.
+1. Customer submits a transport request without creating an account and receives private tracking details and a downloadable receipt.
 2. AFOS validates the request.
-3. Matching identifies suitable verified declared capacity.
-4. One or more providers receive offers.
-5. Providers accept, reject, or allow offers to expire.
-6. Accepted capacity is allocated to the request.
+3. Matching calculates suitable capacity from verified registered trucks, compatible trailers, document validity, availability dates, and non-conflicting trip schedules.
+4. If capacity is available, AFOS Operations assigns a suitable company or individual owner.
+5. If capacity is engaged, the customer receives the next available date and can accept or decline it securely.
+6. Assigned capacity is allocated to the request.
 7. Specific trucks, trailers, and drivers are assigned.
 8. Trips are dispatched.
 9. Drivers or operations record movement milestones.
@@ -81,6 +79,8 @@ The system must:
 - Record reviewer, decision time, reason, and document expirations.
 - Prevent unverified or suspended providers from being offered live work.
 - Preserve verification history.
+- Distinguish registered transport companies from individual vehicle owners.
+- Capture provider/owner name, registration where applicable, primary contact, contact details, declared vehicle count, and operating areas.
 
 The exact verification standard remains an operational and legal decision.
 
@@ -94,17 +94,21 @@ The system must:
 - Record required document status and expiration dates.
 - Prevent suspended, expired, or unavailable resources from being allocated.
 - Preserve historical assignments if a resource later becomes inactive.
+- Register every truck and trailer separately with a globally unique registration number.
+- Capture insurance and roadworthiness expiration dates and a return-to-service date when an asset is unavailable.
+- Show declared vehicle count separately from registered assets.
+- Treat drivers as provider-managed operational resources; do not require separate driver accounts in the controlled pilot.
 
-### Epic 4 — Capacity availability
+### Epic 4 — Registered-fleet availability
 
 The system must:
 
-- Allow authorized providers or AFOS operations to declare capacity availability.
-- Record container compatibility, quantity, date/time window, and relevant operating constraints.
-- Distinguish registered fleet from currently available operational capacity.
-- Show when and by whom availability was declared or changed.
-- Prevent capacity from being committed to conflicting assignments.
-- Measure whether declared capacity was genuinely usable when required.
+- Calculate usable units as the lower of eligible trucks and compatible trailers.
+- Exclude inactive, expired, manually unavailable, and already-booked assets.
+- Record explicit unavailable reasons and expected return dates.
+- Show declared fleet, registered assets, engaged assets, and remaining usable capacity distinctly.
+- Prevent overlapping truck, trailer, and driver schedules at database level.
+- Calculate the earliest supported future date when requested capacity is currently engaged.
 
 ### Epic 5 — Transport requests
 
@@ -119,20 +123,25 @@ The system must:
 - Allow container numbers to be added after initial submission but require them before dispatch where the operating rule requires it.
 - Record movement type, cargo category, estimated cargo weight with unit, pickup readiness, requested pickup window, and requested delivery window.
 - Support authorized freight forwarder or clearing-agent participation as a demand-side organization without presenting AFOS as an authoritative customs or port-status source.
+- Allow first-time customers to submit without an account using a short step-by-step form.
+- Capture customer contact details and issue a private tracking reference and token.
+- Provide a downloadable receipt and support optional email delivery when email infrastructure is configured.
+- Allow a customer to track only their own request using both secret values.
+- Allow a customer to accept or decline a proposed later availability date.
 
 ### Epic 6 — Matching and provider offers
 
 The system must:
 
-- Identify capacity using transparent eligibility rules.
+- Identify capacity from verified registered fleet using transparent eligibility rules.
 - Consider verification, compatibility, availability, dates, quantity, and allocation conflicts.
 - Allow AFOS operations to review and override suggested matches.
-- Send offers to one or more suitable providers.
+- Allow AFOS Operations to assign an eligible company or individual vehicle owner during the controlled pilot.
 - Record sent, viewed where feasible, accepted, rejected, unanswered, expired, and withdrawn outcomes.
 - Capture provider response time and rejection reason.
 - Support partial and multi-provider fulfilment.
 
-Automated AI matching is outside the MVP.
+Automated AI matching and mandatory provider self-service accounts are outside the controlled-pilot workflow.
 
 The pilot will record manually coordinated quotations or confirmed prices. Automated estimated pricing and unrestricted price-only provider comparison are outside the MVP.
 
@@ -357,9 +366,15 @@ A request is not automatically added to the MVP because one participant asks for
 | 12 Aug 2026 | Use GitHub, Vercel, and Supabase as the initial platform foundation | Working decision | Founder |
 | 12 Aug 2026 | Use human-assisted matching in the MVP | Working decision | Founder |
 | 12 Aug 2026 | Keep payments, GPS, AI matching, and native apps outside the initial MVP | Working decision | Founder |
+| 13 Aug 2026 | Permit public transport requests without mandatory account creation | Implemented | Founder |
+| 13 Aug 2026 | Make registered vehicles and schedules the source of operational capacity | Implemented | Founder |
+| 13 Aug 2026 | Support companies and individual vehicle owners with operations-led pilot assignment | Implemented | Founder |
+| 13 Aug 2026 | Do not require separate driver accounts during the controlled pilot | Working decision | Founder |
+| 13 Aug 2026 | Let customers securely accept or decline a later available date | Implemented | Founder |
 
 ## 15. Revision history
 
 | Date | Version | Change | Author/owner |
 |---|---:|---|---|
 | 12 Aug 2026 | 0.1 | Initial consolidated MVP PRD | AFOS / pending review |
+| 13 Aug 2026 | 0.2 | Aligned requirements with the implemented guest request, registered fleet, matching, and alternative-date workflows | Founder / technical partner |
