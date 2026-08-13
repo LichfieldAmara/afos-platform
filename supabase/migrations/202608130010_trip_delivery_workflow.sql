@@ -1,0 +1,1 @@
+-- Production source: apply supabase/manual/010_trip_delivery_workflow.sql through the Supabase SQL editor.
