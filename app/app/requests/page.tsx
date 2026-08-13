@@ -4,8 +4,7 @@ import { CreateRequestForm } from "@/components/requests/request-form";
 import { requirePlatformRole } from "@/lib/auth/authorization";
 import { requireUser } from "@/lib/auth/session";
 import { listTransportRequests } from "@/lib/requests/data";
-import { regenerateTrackingAccess } from "@/app/actions/operations";
-import { RecoveryForm } from "@/components/requests/recovery-form";
+import Link from "next/link";
 
 export const dynamic = "force-dynamic";
 
@@ -22,11 +21,11 @@ export default async function RequestsPage({searchParams}:{searchParams:Promise<
     <section className="records-section"><div className="records-heading"><div><span>Demand queue</span><h2>Recent requests</h2></div><form className="request-search"><label htmlFor="request-search">Find a request</label><input id="request-search" name="q" defaultValue={query} placeholder="Reference, customer or phone"/><button>Search</button></form><span>{visible.length} records</span></div>
       {visible.length === 0 ? <div className="records-empty"><strong>{query?"No matching requests":"No transport requests yet"}</strong><p>{query?"Try the request reference, customer name or phone number.":"The first submitted request will appear here with its reference and next status."}</p></div> :
       <div className="request-list">{visible.map((request) => <article className="request-record-wrap" key={request.id}><div className="request-record">
-        <div><span className={`status-chip status-${request.status}`}>{request.status.replaceAll("_", " ")}</span><strong>{request.reference}</strong><small>{request.customer}</small></div>
+        <div><span className={`status-chip status-${request.status}`}>{request.status.replaceAll("_", " ")}</span><Link className="request-reference" href={`/app/requests/${request.id}`}>{request.reference}</Link><small>{request.customer}</small></div>
         <div><span>Container</span><strong>{request.quantity} × {request.containerSize}</strong></div>
         <div className="request-route"><span>Route</span><strong>{request.pickup} <i>→</i> {request.destination}</strong><small>Pickup {new Intl.DateTimeFormat("en", { dateStyle: "medium", timeStyle: "short" }).format(new Date(request.requiredAt))}</small></div>
-        <div><span>Call</span><strong>{request.contactName}</strong><a href={`tel:${request.contactPhone}`}>{request.contactPhone}</a></div>
-      </div><details className="recovery-panel"><summary>Customer lost their tracking details</summary><p>First verify the caller using their phone number and request route. Creating a new code immediately invalidates the old one and records this action.</p><RecoveryForm requestId={request.id} action={regenerateTrackingAccess}/></details></article>)}</div>}
+        <div><span>Call</span><strong>{request.contactName}</strong><a href={`tel:${request.contactPhone}`}>{request.contactPhone}</a></div><Link className="open-request" href={`/app/requests/${request.id}`}>Open and manage →</Link>
+      </div></article>)}</div>}
     </section>
   </AppShell>;
 }
