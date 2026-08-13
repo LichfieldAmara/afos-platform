@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.5
+**Version:** 0.6
 **Last updated:** 13 August 2026
 
 ## 1. Purpose
@@ -26,6 +26,18 @@ No phase is complete merely because software was written. Each phase has a defin
 - Scope expands only when evidence justifies it.
 - Every agreed feature must update the Concept Note when it changes the product or operating model, the PRD when it changes requirements or business rules, and this Implementation Plan when it changes delivery status or sequencing.
 - Documentation updates, automated checks, and production verification are part of a feature's definition of done; a feature is not recorded as complete without them.
+
+### Request-centred fleet assignment completed in code (database activation pending)
+
+- Provider records now distinguish declared trucks and declared trailers and support company and individual-owner supply.
+- Provider-managed driver registration is included without creating a separate driver portal.
+- A request displays provider availability, reasons for non-availability, and known return dates in one workspace.
+- Operations can select exact truck–trailer–driver units from one or several providers.
+- The database assignment is atomic, schedule-aware, concurrency-locked, auditable, and creates trips automatically.
+- Multi-container and explicit partial assignments retain assigned-versus-remaining progress.
+- Every trip, milestone, exception, and proof-of-delivery action remains on the originating request.
+- Local quality gate: production build, lint, and 79 automated workflow/security tests pass.
+- Activation gate: run database update 013 in hosted Supabase, then complete live multi-unit acceptance and production deployment checks.
 
 ## 3. Responsibilities
 

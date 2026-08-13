@@ -5,7 +5,7 @@
 **Product:** Container Transport Capacity Coordination Platform  
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.5
+**Version:** 0.6
 **Last updated:** 13 August 2026
 
 ## 1. Executive summary
@@ -15,6 +15,8 @@ The African Freight Operating System (AFOS) is a proposed digital coordination p
 AFOS is intended to improve how existing transport capacity is discovered, confirmed, allocated, dispatched, monitored, and completed. The first product will be a narrow, operations-assisted web application used to validate the business and operating model through real transport movements.
 
 AFOS will not initially own transport assets. It will coordinate capacity belonging to participating providers.
+
+The pilot operating model is request-centred. A customer submits a request without an account. AFOS Operations opens that request, sees compatible live fleet without leaving the page, and reserves exact truck–trailer–driver units. A request for several containers can be fulfilled by one or several providers, either completely or through an explicit partial assignment. Provider companies and individual owners are registered separately with declared and individually verified trucks, trailers, and provider-managed drivers.
 
 ## 2. Background
 

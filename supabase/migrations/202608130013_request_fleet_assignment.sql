@@ -1,0 +1,2 @@
+-- Apply the complete, reviewed SQL from ../manual/013_request_fleet_assignment.sql.
+-- This tracked marker keeps deployment order explicit; hosted Supabase is updated manually during the pilot.

@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.5
+**Version:** 0.6
 **Last updated:** 13 August 2026
 
 ## 1. Purpose
@@ -27,6 +27,17 @@ Enable genuine container-transport demand to be matched with verified suitable c
 - Secure organization-level data isolation
 - Explicit exception handling
 - Evidence-based scope decisions
+- Keep the customer request as the operational centre; matching must not require navigating to provider setup screens.
+
+### Request-to-fleet assignment requirements
+
+- Provider registration records company or individual-owner identity, contact person, declared truck count, declared trailer count, operating areas, and verification state.
+- Trucks and trailers are registered as individual assets; drivers are provider-managed records and do not require their own portal in the pilot.
+- One usable unit means one active truck, one active correctly sized trailer, and one active driver with valid documents for the selected schedule.
+- The request workspace shows every verified provider, compatible units available now, a plain-language reason when unavailable, and the next recorded availability date where known.
+- Operations selects exact units on the request itself. Confirmation atomically rechecks and reserves every selected asset and creates its trip.
+- Multi-container requests may combine several providers. Partial fulfilment requires an explicit choice and leaves the remaining quantity visible and open.
+- Assigned assets immediately stop appearing as available for overlapping schedules and return automatically after completion or cancellation.
 
 ## 4. Users and roles
 
