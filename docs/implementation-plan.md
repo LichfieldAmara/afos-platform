@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.4
+**Version:** 0.5
 **Last updated:** 13 August 2026
 
 ## 1. Purpose
@@ -578,6 +578,10 @@ The baseline does not mark the full MVP or pilot as complete. Real participant v
 5. Added a dedicated open-first Exceptions workspace with customer/provider context, replacement needs, resolution, and history.
 6. Re-ran automated regression, lint, production build, deployment, public-route, protected-route, and health verification; maintained the living documents as part of completion.
 
+### Dashboard clarity refinement — 13 August 2026
+
+User review found that eight equally weighted metrics were repetitive and did not explain what Operations should do. The dashboard was redesigned into three task cards with direct actions, a smaller four-item awareness snapshot, and a plain-language four-step guide.
+
 ## 21. Decision log
 
 | Date | Decision | Status | Owner |
@@ -604,3 +608,4 @@ The baseline does not mark the full MVP or pilot as complete. Real participant v
 | 13 Aug 2026 | 0.2 | Recorded the implemented guest, provider fleet, capacity, assignment, and alternative-date workflow; corrected phase status | Founder / technical partner |
 | 13 Aug 2026 | 0.3 | Audited and recorded the complete implemented baseline; made documentation maintenance a formal definition-of-done requirement | Founder / technical partner |
 | 13 Aug 2026 | 0.4 | Completed and verified the six-feature Operations consolidation block | Founder / technical partner |
+| 13 Aug 2026 | 0.5 | Refined the Operations dashboard after user feedback showed the equal metric grid was unclear | Founder / technical partner |

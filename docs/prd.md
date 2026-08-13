@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.4
+**Version:** 0.5
 **Last updated:** 13 August 2026
 
 ## 1. Purpose
@@ -253,7 +253,7 @@ The following capabilities are implemented and verified in the current web appli
 | Delivery | Recipient and outcome capture, private evidence upload, completion controls, and customer-visible delivery result |
 | Security and integrity | Server authorization, Row Level Security, hashed tracking tokens, restricted public functions, allocation conflict controls, and append-oriented audit events |
 | Delivery platform | GitHub source control, automatic Vercel deployment, Supabase database/auth/storage, schema migrations, health endpoint, tests, lint, and production build checks |
-| Operations dashboard | New demand, price confirmation, assignment queue, usable fleet pairs, engaged assets, active trips, open exceptions, and deliveries today |
+| Operations dashboard | Three clearly named action cards for price, provider assignment, and exceptions; a separate four-item operational snapshot; direct links to the work; and a plain-language operating guide |
 | Operations navigation | Five active areas: Overview, Requests, Providers & Fleet, Trips, and Exceptions; legacy workflow URLs redirect safely |
 | Explainable matching | Every verified provider is shown with compatible available units, unavailable reason, and next known date; only currently eligible providers can be assigned |
 | Fleet overview | Declared trucks, registered trucks/trailers, available pairs, engaged pairs, unavailable assets, expired documents, and mismatch warnings |
@@ -412,3 +412,4 @@ A request is not automatically added to the MVP because one participant asks for
 | 13 Aug 2026 | 0.2 | Aligned requirements with the implemented guest request, registered fleet, matching, and alternative-date workflows | Founder / technical partner |
 | 13 Aug 2026 | 0.3 | Added a complete implemented functional baseline and distinguished it from unvalidated and future scope | Founder / technical partner |
 | 13 Aug 2026 | 0.4 | Added the consolidated Operations dashboard, navigation, fleet, matching, and Exceptions acceptance baseline | Founder / technical partner |
+| 13 Aug 2026 | 0.5 | Clarified the dashboard UX by separating actionable work from awareness metrics | Founder / technical partner |
