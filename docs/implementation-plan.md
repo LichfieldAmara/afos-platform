@@ -4,14 +4,18 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.6
-**Last updated:** 13 August 2026
+**Version:** 0.7
+**Last updated:** 8 September 2026
 
 ## 1. Purpose
 
 This plan describes how AFOS will move from concept to a controlled real-world pilot. It is written for a non-technical product owner and will be updated as decisions are made and evidence is collected.
 
 No phase is complete merely because software was written. Each phase has a defined output and approval gate.
+
+### Current implementation focus
+
+The live validation product is being reduced to one public request form connected to a private Google Sheet. Google Apps Script receives server-validated requests and creates timestamped rows with non-sequential request numbers. The public homepage contains one primary action, tracking redirects to the request page, and Operations/fleet functions remain dormant. Activation requires the owner to connect the Google Sheet and add the two private webhook environment variables in Vercel.
 
 ## 2. Delivery principles
 
@@ -611,6 +615,7 @@ User review found that eight equally weighted metrics were repetitive and did no
 | 13 Aug 2026 | Propose a future date when fleet is engaged and let the customer accept or decline | Implemented | Founder / technical partner |
 | 13 Aug 2026 | Make living-document updates part of the definition of done for every agreed feature | Approved delivery rule | Founder / technical partner |
 | 13 Aug 2026 | Consolidate Operations around requests, registered fleet, trips, and exceptions and retire manual capacity/offer navigation | Implemented | Founder / technical partner |
+| 8 Sep 2026 | Make a private Google Sheet the active request inbox and defer platform-managed supply and fulfilment | Approved; connection pending | Founder / technical partner |
 
 ## 22. Revision history
 
@@ -621,3 +626,4 @@ User review found that eight equally weighted metrics were repetitive and did no
 | 13 Aug 2026 | 0.3 | Audited and recorded the complete implemented baseline; made documentation maintenance a formal definition-of-done requirement | Founder / technical partner |
 | 13 Aug 2026 | 0.4 | Completed and verified the six-feature Operations consolidation block | Founder / technical partner |
 | 13 Aug 2026 | 0.5 | Refined the Operations dashboard after user feedback showed the equal metric grid was unclear | Founder / technical partner |
+| 8 Sep 2026 | 0.7 | Implemented the simplified public request and Google Sheet intake foundation; manual Google/Vercel connection remains | Founder / technical partner |

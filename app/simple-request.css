@@ -1,0 +1,12 @@
+.simple-request-form{max-width:58rem;margin:0 auto;padding:clamp(1.2rem,3vw,2.2rem);border:1px solid var(--line);background:var(--cream)}
+.simple-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.simple-form-grid label>span{display:block;margin-bottom:.45rem;color:var(--muted);font-size:.76rem;font-weight:750}
+.simple-form-grid input,.simple-form-grid select,.simple-form-grid textarea{width:100%;min-height:3.25rem;padding:.8rem .9rem;border:1px solid var(--line);border-radius:.35rem;background:white;color:var(--ink);font:inherit}
+.simple-form-grid textarea{resize:vertical}.simple-form-grid .wide{grid-column:1/-1}
+.simple-submit-row{margin-top:1.2rem;padding-top:1.2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;border-top:1px solid var(--line)}
+.simple-submit-row p{margin:0;color:var(--muted);font-size:.8rem}
+.simple-confirmation>div{max-width:28rem;margin:1.5rem auto;padding:1rem;background:var(--paper)}
+.simple-confirmation>div small,.simple-confirmation>div strong{display:block}.simple-confirmation>div strong{margin-top:.5rem;font-size:1.35rem}
+.simple-confirmation>button{padding:1rem 1.2rem;border:0;border-radius:.35rem;background:var(--ink);color:white;font:inherit;font-weight:800;cursor:pointer}
+.dark-action{margin-top:2rem;background:var(--ink)}
+@media(max-width:650px){.simple-form-grid{grid-template-columns:1fr}.simple-form-grid .wide{grid-column:auto}.simple-submit-row{align-items:stretch;flex-direction:column}.simple-submit-row .request-submit{width:100%}}

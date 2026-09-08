@@ -4,14 +4,18 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.6
-**Last updated:** 13 August 2026
+**Version:** 0.7
+**Last updated:** 8 September 2026
 
 ## 1. Purpose
 
 This Product Requirements Document defines the first AFOS product that will be built and tested. It translates the concept into product boundaries, users, workflows, functional requirements, business rules, and measurable outcomes.
 
 Detailed user stories, acceptance criteria, data definitions, API contracts, and wireframes will be added as product discovery progresses.
+
+### Active MVP boundary
+
+The active MVP has one customer workflow: submit a transport request without an account. Required fields are name/company, phone/WhatsApp, pickup, delivery, truck/trailer/not-sure, size, quantity, and date required; additional information is optional. A successful submission creates an automatic timestamp and request number and appends one row to a private Google Sheet. The customer sees a simple confirmation. AFOS personnel source vehicles and contact the customer manually outside the platform. Fleet directories, provider onboarding, quotes, pricing, customer tracking, assignments, trips, and payments are outside the active MVP.
 
 ## 2. Product objective
 
@@ -424,3 +428,4 @@ A request is not automatically added to the MVP because one participant asks for
 | 13 Aug 2026 | 0.3 | Added a complete implemented functional baseline and distinguished it from unvalidated and future scope | Founder / technical partner |
 | 13 Aug 2026 | 0.4 | Added the consolidated Operations dashboard, navigation, fleet, matching, and Exceptions acceptance baseline | Founder / technical partner |
 | 13 Aug 2026 | 0.5 | Clarified the dashboard UX by separating actionable work from awareness metrics | Founder / technical partner |
+| 8 Sep 2026 | 0.7 | Replaced the active marketplace workflow with a single no-account request form and private Google Sheet inbox | Founder / technical partner |
