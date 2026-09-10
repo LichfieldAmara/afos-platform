@@ -265,3 +265,4 @@ This is a living document. Material changes should update the version, date, and
 | 13 Aug 2026 | 0.4 | Consolidated Operations dashboard/navigation, fleet visibility, explainable matching, and exception management | Founder / technical partner |
 | 13 Aug 2026 | 0.5 | Replaced the repetitive metric wall with a plain-language action-first Operations dashboard | Founder / technical partner |
 | 8 Sep 2026 | 0.7 | Narrowed the validation product to no-account requests recorded in a private timestamped Google Sheet; deferred fleet and Operations workflows | Founder / technical partner |
+| 10 Sep 2026 | 0.7 | Connected and production-verified the private Google Sheet request inbox | Founder / technical partner |

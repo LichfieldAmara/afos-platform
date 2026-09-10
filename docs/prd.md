@@ -429,3 +429,4 @@ A request is not automatically added to the MVP because one participant asks for
 | 13 Aug 2026 | 0.4 | Added the consolidated Operations dashboard, navigation, fleet, matching, and Exceptions acceptance baseline | Founder / technical partner |
 | 13 Aug 2026 | 0.5 | Clarified the dashboard UX by separating actionable work from awareness metrics | Founder / technical partner |
 | 8 Sep 2026 | 0.7 | Replaced the active marketplace workflow with a single no-account request form and private Google Sheet inbox | Founder / technical partner |
+| 10 Sep 2026 | 0.7 | Production-verified the request submission and private Sheet delivery path | Founder / technical partner |
