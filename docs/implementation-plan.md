@@ -5,7 +5,7 @@
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
 **Version:** 0.7
-**Last updated:** 8 September 2026
+**Last updated:** 22 September 2026
 
 ## 1. Purpose
 
@@ -16,6 +16,8 @@ No phase is complete merely because software was written. Each phase has a defin
 ### Current implementation focus
 
 The live validation product is one public request form connected to a private Google Sheet. Google Apps Script receives server-validated requests and creates timestamped rows with non-sequential request numbers. The public homepage contains one primary action, tracking redirects to the request page, and Operations/fleet functions remain dormant. The owner-controlled Google Sheet and private Vercel webhook variables are connected and verified in production.
+
+The public request URL also has a downloadable QR code at `public/afos-request-qr.png` for sharing or printing while AFOS uses its free Vercel address.
 
 ## 2. Delivery principles
 
@@ -627,3 +629,4 @@ User review found that eight equally weighted metrics were repetitive and did no
 | 13 Aug 2026 | 0.4 | Completed and verified the six-feature Operations consolidation block | Founder / technical partner |
 | 13 Aug 2026 | 0.5 | Refined the Operations dashboard after user feedback showed the equal metric grid was unclear | Founder / technical partner |
 | 10 Sep 2026 | 0.7 | Deployed and production-tested the simplified request flow and private Google Sheet intake | Founder / technical partner |
+| 22 Sep 2026 | 0.7 | Generated a QR code for the live Vercel request form and reviewed current security posture | Founder / technical partner |
