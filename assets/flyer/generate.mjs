@@ -43,7 +43,7 @@ const design = Buffer.from(`<svg width="${width}" height="${height}" xmlns="http
   <text x="190" y="2600" fill="#58655e" font-family="Helvetica Neue, Arial, sans-serif" font-size="42">No account needed. We’ll contact you.</text>
   <line x1="125" y1="2750" x2="1570" y2="2750" stroke="#ccd2ca" stroke-width="3"/>
   <text x="125" y="2843" fill="#58655e" font-family="Helvetica Neue, Arial, sans-serif" font-size="39" letter-spacing="3">FOR ENQUIRIES</text>
-  <text x="560" y="2846" fill="#1b3029" font-family="Helvetica Neue, Arial, sans-serif" font-size="62" font-weight="700">099507223</text>
+  <text x="560" y="2846" fill="#1b3029" font-family="Helvetica Neue, Arial, sans-serif" font-size="62" font-weight="700">+23299507223</text>
   <text x="125" y="2932" fill="#58655e" font-family="Helvetica Neue, Arial, sans-serif" font-size="35">afos-platform.vercel.app</text>
   <rect x="1650" y="2315" width="630" height="630" rx="25" fill="#fff" stroke="#d5ddd5" stroke-width="5"/>
 </svg>`);
