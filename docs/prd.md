@@ -17,7 +17,7 @@ Detailed user stories, acceptance criteria, data definitions, API contracts, and
 
 The active MVP has one customer workflow: submit a transport request without an account. Required fields are name/company, phone/WhatsApp, pickup, delivery, truck/trailer/not-sure, size, quantity, and date required; additional information is optional. A successful submission creates an automatic timestamp and request number and appends one row to a private Google Sheet. The customer sees a simple confirmation. AFOS personnel source vehicles and contact the customer manually outside the platform. Fleet directories, provider onboarding, quotes, pricing, customer tracking, assignments, trips, and payments are outside the active MVP.
 
-The request form can be reached through a downloadable QR code that encodes the public Vercel request URL. Scanning it does not reveal private Sheet data or require an account.
+The public homepage can be reached through a downloadable QR code that encodes the Vercel homepage URL. Visitors can read about AFOS and then choose the transport-request button. Scanning it does not reveal private Sheet data or require an account.
 
 ## 2. Product objective
 
@@ -432,4 +432,4 @@ A request is not automatically added to the MVP because one participant asks for
 | 13 Aug 2026 | 0.5 | Clarified the dashboard UX by separating actionable work from awareness metrics | Founder / technical partner |
 | 8 Sep 2026 | 0.7 | Replaced the active marketplace workflow with a single no-account request form and private Google Sheet inbox | Founder / technical partner |
 | 10 Sep 2026 | 0.7 | Production-verified the request submission and private Sheet delivery path | Founder / technical partner |
-| 22 Sep 2026 | 0.7 | Added a downloadable QR entry point to the public request form | Founder / technical partner |
+| 22 Sep 2026 | 0.7 | Directed the downloadable QR entry point to the public homepage | Founder / technical partner |

@@ -14,7 +14,7 @@
 
 AFOS is initially a simple transport-request service. A customer submits a request without an account, and the request is recorded with a timestamp and request number in a private Google Sheet. The AFOS owner reviews that sheet and sources trucks or trailers manually through existing industry relationships. Provider registration, public fleet listings, automated matching, pricing, tracking, dispatch, and delivery management are deferred until real request volume justifies them. Previously built Operations capabilities remain dormant and are not part of the current customer journey.
 
-A shareable QR code opens the same public request form at the existing Vercel address; a purchased domain is not required for this pilot.
+A shareable QR code opens the public AFOS homepage, where customers can learn about the service before selecting the request button; a purchased domain is not required for this pilot.
 
 The African Freight Operating System (AFOS) is a proposed digital coordination platform for container road transportation in Sierra Leone. It will connect customers and freight forwarders that require container transport with verified transport providers that have suitable available trucks, trailers, and drivers.
 
@@ -268,4 +268,4 @@ This is a living document. Material changes should update the version, date, and
 | 13 Aug 2026 | 0.5 | Replaced the repetitive metric wall with a plain-language action-first Operations dashboard | Founder / technical partner |
 | 8 Sep 2026 | 0.7 | Narrowed the validation product to no-account requests recorded in a private timestamped Google Sheet; deferred fleet and Operations workflows | Founder / technical partner |
 | 10 Sep 2026 | 0.7 | Connected and production-verified the private Google Sheet request inbox | Founder / technical partner |
-| 22 Sep 2026 | 0.7 | Added QR access to the public request form without requiring a purchased domain | Founder / technical partner |
+| 22 Sep 2026 | 0.7 | Directed QR access to the homepage without requiring a purchased domain | Founder / technical partner |

@@ -28,9 +28,9 @@ test("protected pages require a verified Supabase user", () => {
   assert.match(session, /redirect\("\/login"\)/);
 });
 
-test("health verification checks the applied MVP schema", () => {
-  for (const table of ["organizations", "transport_requests", "trips", "audit_events"]) {
-    assert.match(health, new RegExp(`"${table}"`));
-  }
-  assert.match(health, /schema: "ready"/);
+test("health reports active Google Sheet configuration without exposing secrets", () => {
+  assert.match(health, /GOOGLE_SHEETS_WEBHOOK_URL/);
+  assert.match(health, /GOOGLE_SHEETS_WEBHOOK_SECRET/);
+  assert.match(health, /requestInbox: configured \? "configured" : "not_configured"/);
+  assert.doesNotMatch(health, /process\.env\.NEXT_PUBLIC_SUPABASE/);
 });
