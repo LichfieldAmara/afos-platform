@@ -15,9 +15,9 @@ export default function Home() {
           <Link className="nav-login" href="/request">Request transport <span>↗</span></Link>
         </nav>
         <div className="marketing-hero-content">
-          <span className="marketing-kicker">Container transport · Sierra Leone</span>
-          <h1>Need a truck or trailer for your container?</h1>
-          <p>Tell AFOS where your container is, where it needs to go, and when. We&apos;ll coordinate suitable transport and contact you.</p>
+          <span className="marketing-kicker">African Freight Operating System · Sierra Leone</span>
+          <h1><span>Need transport</span> <span>for your container?</span></h1>
+          <p>Tell us where your container is, where it needs to go, and when. AFOS will coordinate suitable transport and contact you.</p>
           <div className="marketing-actions"><Link className="marketing-primary" href="/request">Request transport <span>↗</span></Link></div>
         </div>
         <div className="hero-proof"><div><span>01</span><strong>Send your request</strong></div><div><span>02</span><strong>AFOS reviews it</strong></div><div><span>03</span><strong>We contact you</strong></div></div>

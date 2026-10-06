@@ -16,7 +16,7 @@ AFOS is initially a simple transport-request service. A customer submits a reque
 
 A shareable QR code opens the public AFOS homepage, where customers can learn about the service before selecting the request button; a purchased domain is not required for this pilot.
 
-The homepage leads with the customer problem—needing a truck or trailer for a container—and accurately states that AFOS coordinates suitable transport. Customers who are not ready to submit a request can call or open a pre-filled WhatsApp enquiry without creating an account or introducing a second enquiry inbox.
+The homepage leads with the customer question “Need transport for your container?” and accurately states that AFOS coordinates suitable transport. The full name, African Freight Operating System, is presented on both the homepage and request form so first-time visitors understand the AFOS acronym. Customers who are not ready to submit a request can call or open a pre-filled WhatsApp enquiry without creating an account or introducing a second enquiry inbox.
 
 The African Freight Operating System (AFOS) is a proposed digital coordination platform for container road transportation in Sierra Leone. It will connect customers and freight forwarders that require container transport with verified transport providers that have suitable available trucks, trailers, and drivers.
 
