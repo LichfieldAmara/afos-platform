@@ -5,7 +5,7 @@
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
 **Version:** 0.7
-**Last updated:** 22 September 2026
+**Last updated:** 6 October 2026
 
 ## 1. Purpose
 
@@ -18,6 +18,8 @@ Detailed user stories, acceptance criteria, data definitions, API contracts, and
 The active MVP has one customer workflow: submit a transport request without an account. Required fields are name/company, phone/WhatsApp, pickup, delivery, truck/trailer/not-sure, size, quantity, and date required; additional information is optional. A successful submission creates an automatic timestamp and request number and appends one row to a private Google Sheet. The customer sees a simple confirmation. AFOS personnel source vehicles and contact the customer manually outside the platform. Fleet directories, provider onboarding, quotes, pricing, customer tracking, assignments, trips, and payments are outside the active MVP.
 
 The public homepage can be reached through a downloadable QR code that encodes the Vercel homepage URL. Visitors can read about AFOS and then choose the transport-request button. Scanning it does not reveal private Sheet data or require an account.
+
+The homepage must explain the service in customer language, keep the transport request as its primary action, and provide secondary call and pre-filled WhatsApp enquiry actions. Enquiries do not create another platform form or inbox during this validation phase.
 
 ## 2. Product objective
 
@@ -433,3 +435,4 @@ A request is not automatically added to the MVP because one participant asks for
 | 8 Sep 2026 | 0.7 | Replaced the active marketplace workflow with a single no-account request form and private Google Sheet inbox | Founder / technical partner |
 | 10 Sep 2026 | 0.7 | Production-verified the request submission and private Sheet delivery path | Founder / technical partner |
 | 22 Sep 2026 | 0.7 | Directed the downloadable QR entry point to the public homepage | Founder / technical partner |
+| 6 Oct 2026 | 0.7 | Added accurate customer-facing coordination language, direct enquiries, and small-screen usability requirements | Founder / technical partner |

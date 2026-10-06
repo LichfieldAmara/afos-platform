@@ -5,7 +5,7 @@
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
 **Version:** 0.7
-**Last updated:** 22 September 2026
+**Last updated:** 6 October 2026
 
 ## 1. Purpose
 
@@ -19,7 +19,9 @@ The live validation product is one public request form connected to a private Go
 
 The public homepage has a downloadable QR code at `public/afos-request-qr.png` for sharing or printing while AFOS uses its free Vercel address. The active health endpoint checks Google Sheet configuration rather than the dormant Supabase schema; it does not claim to prove a Sheet write.
 
-A first AFOS container-transport flyer is stored in `assets/flyer/` with its generated trailer photograph, composition source, and final PNG. It uses the homepage QR code and the pilot enquiry number supplied by the founder.
+A first AFOS container-transport flyer is stored in `assets/flyer/` with its generated trailer photograph, composition source, and final JPG. It uses the homepage QR code and the pilot enquiry number supplied by the founder.
+
+The public homepage now uses the flyer-led message, offers WhatsApp and phone enquiries without a second form, and has targeted small-phone typography, navigation, form-padding, and placeholder refinements. Responsive verification covers 320px, 390px, tablet, and desktop widths.
 
 ## 2. Delivery principles
 
@@ -632,3 +634,4 @@ User review found that eight equally weighted metrics were repetitive and did no
 | 13 Aug 2026 | 0.5 | Refined the Operations dashboard after user feedback showed the equal metric grid was unclear | Founder / technical partner |
 | 10 Sep 2026 | 0.7 | Deployed and production-tested the simplified request flow and private Google Sheet intake | Founder / technical partner |
 | 22 Sep 2026 | 0.7 | Redirected QR access to the homepage, patched dependency advisories, aligned health checks with the active Google Sheet flow, and produced the first transport flyer | Founder / technical partner |
+| 6 Oct 2026 | 0.7 | Aligned the homepage with the flyer message, added direct enquiries, and refined/tested the mobile public journey | Founder / technical partner |

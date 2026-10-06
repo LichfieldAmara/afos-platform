@@ -10,3 +10,4 @@
 .simple-confirmation>button{padding:1rem 1.2rem;border:0;border-radius:.35rem;background:var(--ink);color:white;font:inherit;font-weight:800;cursor:pointer}
 .dark-action{margin-top:2rem;background:var(--ink)}
 @media(max-width:650px){.simple-form-grid{grid-template-columns:1fr}.simple-form-grid .wide{grid-column:auto}.simple-submit-row{align-items:stretch;flex-direction:column}.simple-submit-row .request-submit{width:100%}}
+@media(max-width:380px){.public-request-page{padding-left:.8rem;padding-right:.8rem}.public-request-page>header{margin-top:2.5rem}.public-request-page>header h1{font-size:2.75rem}.simple-request-form{padding:1rem}.simple-form-grid input,.simple-form-grid select,.simple-form-grid textarea{padding-left:.75rem;padding-right:.75rem}}
