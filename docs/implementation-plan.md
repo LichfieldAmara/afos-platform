@@ -21,7 +21,7 @@ The public homepage has a downloadable QR code at `public/afos-request-qr.png` f
 
 A first AFOS container-transport flyer is stored in `assets/flyer/` with its generated trailer photograph, composition source, and final JPG. It uses the homepage QR code and the pilot enquiry number supplied by the founder.
 
-A separate A6 portrait, two-sided print-card draft preserves the explanatory message while enlarging the QR code and contact information for four-up A4 printing. The original digital flyer remains unchanged until the print draft is reviewed and approved.
+A separate 90 × 55 mm, two-sided contact card keeps the container-truck photograph and a single explanatory sentence on the front. Its clean back contains a large QR code, phone/WhatsApp number, email, and full AFOS name. The deliverables include an individual-card PDF and a duplex A4 ten-up sheet with cutting guides; the original digital flyer remains unchanged.
 
 The public homepage now asks “Need transport for your container?”, displays the African Fleet Operating System name as part of the logo treatment, offers WhatsApp and phone enquiries without a second form, and has targeted small-phone typography, deliberate headline wrapping, navigation, form-padding, and placeholder refinements. The request form uses the same branded logo treatment without an explanatory acronym sentence. Responsive verification covers 320px, 390px, tablet, and desktop widths.
 
