@@ -11,11 +11,11 @@ export default function Home() {
         <Image className="marketing-hero-image" src="/images/afos-container-transport-hero.jpg" alt="Container truck moving near a coastal container terminal" fill priority sizes="100vw" />
         <div className="marketing-overlay" />
         <nav className="marketing-nav">
-          <Link className="brand" href="/"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>African Freight Operating System</small></span></Link>
+          <Link className="brand" href="/"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>African Fleet Operating System</small></span></Link>
           <Link className="nav-login" href="/request">Request transport <span>↗</span></Link>
         </nav>
         <div className="marketing-hero-content">
-          <span className="marketing-kicker">African Freight Operating System · Sierra Leone</span>
+          <span className="marketing-kicker">Container transport · Sierra Leone</span>
           <h1><span>Need transport</span> <span>for your container?</span></h1>
           <p>Tell us where your container is, where it needs to go, and when. AFOS will coordinate suitable transport and contact you.</p>
           <div className="marketing-actions"><Link className="marketing-primary" href="/request">Request transport <span>↗</span></Link></div>
@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       <footer className="marketing-footer">
-        <div className="brand"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>African Freight Operating System</small></span></div>
+        <div className="brand"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>African Fleet Operating System</small></span></div>
         <p>Container transport coordination.<br /><a href="tel:+23299507223">+232 99 507223</a></p>
         <span>Freetown · Sierra Leone</span>
       </footer>

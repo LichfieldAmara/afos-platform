@@ -1,4 +1,4 @@
-# African Freight Operating System (AFOS)
+# African Fleet Operating System (AFOS)
 
 ## MVP Product Requirements Document
 

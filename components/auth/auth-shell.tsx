@@ -16,7 +16,7 @@ export function AuthShell({
       <section className="auth-context">
         <Link className="brand auth-brand" href="/">
           <span className="brand-mark" aria-hidden="true">A</span>
-          <span><strong>AFOS</strong><small>African Freight Operating System</small></span>
+          <span><strong>AFOS</strong><small>African Fleet Operating System</small></span>
         </Link>
         <div>
           <span className="auth-kicker">Controlled pilot access</span>

@@ -3,7 +3,7 @@ import "./globals.css";
 import "./simple-request.css";
 
 export const metadata: Metadata = {
-  title: "AFOS | African Freight Operating System",
+  title: "AFOS | African Fleet Operating System",
   description:
     "Request trucks and trailers for transport in Sierra Leone.",
 };
