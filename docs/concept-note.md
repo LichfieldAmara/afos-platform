@@ -2,10 +2,10 @@
 
 ## Concept Note
 
-**Product:** Container Transport Capacity Coordination Platform  
+**Product:** Container Transport Delivery Service
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.7
+**Version:** 0.8
 **Last updated:** 6 October 2026
 
 ## 1. Executive summary
@@ -16,13 +16,13 @@ AFOS is initially a simple transport-request service. A customer submits a reque
 
 A shareable QR code opens the public AFOS homepage, where customers can learn about the service before selecting the request button; a purchased domain is not required for this pilot.
 
-The homepage leads with the customer question “Need transport for your container?” and accurately states that AFOS coordinates suitable transport. The full name, African Fleet Operating System, is presented as part of the logo treatment on both the homepage and request form. Customers who are not ready to submit a request can call or open a pre-filled WhatsApp enquiry without creating an account or introducing a second enquiry inbox.
+The homepage leads with the customer question “Need transport for your container?” and states that AFOS handles the transport and delivers the customer’s container. The full name, African Fleet Operating System, is presented as part of the logo treatment on both the homepage and request form. Customers who are not ready to submit a request can call or open a pre-filled WhatsApp enquiry without creating an account or introducing a second enquiry inbox.
 
-The African Fleet Operating System (AFOS) is a proposed digital coordination platform for container road transportation in Sierra Leone. It will connect customers and freight forwarders that require container transport with verified transport providers that have suitable available trucks, trailers, and drivers.
+The African Fleet Operating System (AFOS) is a proposed container road-transport delivery service in Sierra Leone. Customers request delivery from AFOS; AFOS may source suitable trucks, trailers, drivers, and vehicle owners behind the scenes while remaining responsible for completing the delivery.
 
 AFOS is intended to improve how existing transport capacity is discovered, confirmed, allocated, dispatched, monitored, and completed. The first product will be a narrow, operations-assisted web application used to validate the business and operating model through real transport movements.
 
-AFOS will not initially own transport assets. It will coordinate capacity belonging to participating providers.
+AFOS will not initially own transport assets. It will fulfil deliveries using capacity sourced from participating providers while remaining the customer-facing delivery service.
 
 The pilot operating model is request-centred. A customer submits a request without an account. AFOS Operations opens that request, sees compatible live fleet without leaving the page, and reserves exact truck–trailer–driver units. A request for several containers can be fulfilled by one or several providers, either completely or through an explicit partial assignment. Provider companies and individual owners are registered separately with declared and individually verified trucks, trailers, and provider-managed drivers.
 
@@ -33,8 +33,8 @@ The concept originated from direct operational experience in container transport
 - Container transport demand can exceed the capacity of an individual provider.
 - Capacity is distributed among established companies, smaller operators, and independent operators.
 - Customers may contact multiple providers manually when capacity is unavailable.
-- Transport companies already subcontract or coordinate informally.
-- There is no known standardized, shared mechanism for viewing and coordinating available container-transport capacity.
+- Transport companies already subcontract or arrange additional capacity informally.
+- There is no known standardized, shared mechanism for viewing and allocating available container-transport capacity.
 - Initial conversations with some AGL drivers indicate that the problem and proposed direction are relevant to their work.
 
 These observations support further validation but do not constitute a formal AGL partnership, confirmed national market size, or proven willingness to transact through AFOS.
@@ -44,7 +44,7 @@ These observations support further validation but do not constitute a formal AGL
 Sierra Leone's container road-transport market appears to face two connected problems:
 
 1. **Capacity constraints:** An individual provider may not have enough suitable trailers available when demand occurs.
-2. **Coordination constraints:** Capacity that exists elsewhere is fragmented and difficult to discover, verify, and coordinate reliably.
+2. **Fulfilment constraints:** Capacity that exists elsewhere is fragmented and difficult to discover, verify, allocate, and use reliably for delivery.
 
 The result can include delayed movements, lost business, customer frustration, inefficient asset use, and demurrage exposure.
 
@@ -55,7 +55,7 @@ AFOS will provide a trusted workflow through which:
 1. A customer or freight forwarder submits a genuine container-transport request without being forced to create an account.
 2. AFOS Operations registers and verifies transport companies and individual vehicle owners, including their trucks and compatible trailers.
 3. AFOS calculates suitable capacity from registered, compliant vehicles and their schedules.
-4. AFOS Operations identifies and assigns an available provider; provider responses may initially be coordinated by phone.
+4. AFOS Operations identifies and assigns an available provider; provider responses may initially be obtained by phone.
 5. Specific trucks and trailers are allocated. A driver may be recorded for dispatch, but a separate driver account is not required during the controlled pilot.
 6. Trips are dispatched and progressed through clear statuses.
 7. Exceptions are recorded and managed.
@@ -111,7 +111,7 @@ This architecture is a working decision that may be revised if implementation ev
 ### For customers and freight forwarders
 
 - Easier access to suitable verified capacity
-- Less manual provider-by-provider coordination
+- Less manual provider-by-provider sourcing
 - Clearer request and trip status
 - Better visibility into delays and exceptions
 - One traceable transaction record
@@ -121,24 +121,24 @@ This architecture is a working decision that may be revised if implementation ev
 - Access to relevant transport opportunities
 - Ability to expose genuine unused capacity
 - Clear allocation of trucks, trailers, and drivers
-- Better coordination with AFOS and customers
+- Clearer delivery assignments from AFOS
 
 ### For AFOS
 
-- Commercial value when transportation is successfully coordinated
+- Commercial value when container deliveries are completed successfully
 - Operational data for improving matching and fulfilment
 - A foundation for evidence-based expansion
 
 ## 8. Business model hypothesis
 
-AFOS is a two-sided B2B transport-coordination marketplace. The initial commercial principle is that AFOS earns when a successful movement occurs.
+AFOS is a B2B container transport delivery service that may fulfil work through sourced transport providers. The initial commercial principle is that AFOS earns when a successful delivery occurs.
 
 Possible pilot models include:
 
-- A fixed coordination fee per completed container movement
+- A fixed delivery charge per completed container movement
 - A percentage of completed transport value
 - A customer-paid service fee
-- A provider-paid coordination fee
+- A provider margin or service agreement
 
 No permanent pricing or commission model has been approved. Pricing, invoicing, settlement, taxes, and incentives to bypass the platform require validation before live commercial operation.
 
@@ -155,7 +155,7 @@ The MVP will support:
 - Customer acceptance or rejection of a proposed later date
 - Transport requests for 20-foot and 40-foot containers
 - Matching and provider offers
-- Operations-led company assignment, with provider response coordinated directly during the pilot
+- Operations-led company assignment, with provider response obtained directly during the pilot
 - Single-provider and multi-provider allocation
 - Dispatch and trip status management
 - Exception recording and resolution
@@ -179,7 +179,7 @@ The MVP will not initially include:
 
 The pilot will answer:
 
-> Does AFOS improve the coordination of container transport capacity under real operating conditions in Sierra Leone?
+> Can AFOS reliably deliver requested container movements under real operating conditions in Sierra Leone?
 
 It will test demand, supply, trust, matching, execution, adoption, and commercial value. The primary measure will be the proportion of requested container movements successfully matched, allocated, and completed through AFOS.
 
@@ -220,7 +220,7 @@ This is evidence of software implementation, not evidence that the commercial or
 ## 12. Key risks
 
 - Providers may not declare genuine or accurate availability.
-- Customers and providers may coordinate outside AFOS after introduction.
+- Customers and providers may bypass AFOS after an introduction.
 - Provider response may be too slow for operational requirements.
 - Driver workflows may be impractical under field conditions.
 - Multi-provider fulfilment may create excessive manual complexity.
@@ -251,7 +251,7 @@ The pilot will end in one of three decisions:
 
 - **GO:** Evidence supports further investment and controlled expansion.
 - **MODIFY:** The need is real, but the product or operating model requires correction and retesting.
-- **REASSESS:** Evidence does not support the fundamental coordination model.
+- **REASSESS:** Evidence does not support the fundamental delivery model.
 
 The development principle is:
 
@@ -272,3 +272,4 @@ This is a living document. Material changes should update the version, date, and
 | 10 Sep 2026 | 0.7 | Connected and production-verified the private Google Sheet request inbox | Founder / technical partner |
 | 22 Sep 2026 | 0.7 | Directed QR access to the homepage without requiring a purchased domain | Founder / technical partner |
 | 6 Oct 2026 | 0.7 | Strengthened the public message, added direct phone/WhatsApp enquiries, and refined the mobile journey | Founder / technical partner |
+| 6 Oct 2026 | 0.8 | Repositioned AFOS from a transport coordinator to the customer-facing container delivery service | Founder / technical partner |

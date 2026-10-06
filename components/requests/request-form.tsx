@@ -56,7 +56,7 @@ export function CreateRequestForm({ action }: { action: Action }) {
         <div className="wizard-actions"><button className="wizard-back" type="button" onClick={() => setStep(1)}>← Back</button><button type="button" onClick={() => continueFrom(2)}>Continue to contact <i>→</i></button></div>
       </fieldset>
 
-      <fieldset data-step="3" hidden={step !== 3}><legend><span>3</span><div><strong>Who should we call?</strong><small>Use the person coordinating this movement.</small></div></legend>
+      <fieldset data-step="3" hidden={step !== 3}><legend><span>3</span><div><strong>Who should we call?</strong><small>Use the person managing this delivery.</small></div></legend>
         <div className="request-fields">
           <label><span>Contact person</span><input name="contactName" required minLength={2} autoComplete="name" /></label>
           <label><span>Phone or WhatsApp number</span><input name="contactPhone" required minLength={5} inputMode="tel" autoComplete="tel" placeholder="Include country code when possible" /></label>

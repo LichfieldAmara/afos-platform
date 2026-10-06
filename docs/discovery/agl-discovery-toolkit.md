@@ -16,9 +16,9 @@ Every note must include an evidence label. Names and contact details should be s
 | Statement | Current evidence | Validation needed |
 |---|---|---|
 | Individual providers sometimes lack sufficient suitable trailer capacity | Observed | Quantify frequency and operational impact |
-| Providers coordinate/subcontract capacity informally | Observed | Map approval, pricing, and responsibility process |
+| Providers arrange/subcontract capacity informally | Observed | Map approval, pricing, and responsibility process |
 | Some AGL drivers consider AFOS useful | Reported informally | Structured task-based driver interviews |
-| A shared capacity-coordination workflow may improve fulfilment | Assumed | Real requests and completed pilot movements |
+| A shared capacity-sourcing workflow may improve delivery fulfilment | Assumed | Real requests and completed pilot movements |
 | AGL will participate in a pilot | Not established | Written approval from an authorized representative |
 
 ## Current-workflow interview
@@ -99,4 +99,3 @@ Before live pilot approval, obtain evidence from at least:
 - AFOS operations role
 
 The precise participant count should prioritize repeated operational evidence over arbitrary volume.
-

@@ -17,7 +17,7 @@ export default function Home() {
         <div className="marketing-hero-content">
           <span className="marketing-kicker">Container transport · Sierra Leone</span>
           <h1><span>Need transport</span> <span>for your container?</span></h1>
-          <p>Tell us where your container is, where it needs to go, and when. AFOS will coordinate suitable transport and contact you.</p>
+          <p>Tell us where your container is, where it needs to go, and when. AFOS will handle the transport and deliver your container.</p>
           <div className="marketing-actions"><Link className="marketing-primary" href="/request">Request transport <span>↗</span></Link></div>
         </div>
         <div className="hero-proof"><div><span>01</span><strong>Send your request</strong></div><div><span>02</span><strong>AFOS reviews it</strong></div><div><span>03</span><strong>We contact you</strong></div></div>
@@ -25,7 +25,7 @@ export default function Home() {
 
       <section className="manifesto">
         <span className="section-index">HOW IT WORKS</span>
-        <div><h2>One request. AFOS coordinates the transport.</h2><p>Tell us how many trucks or trailers you need, where they should collect from, where they should deliver, and when they are required.</p><Link className="marketing-primary dark-action" href="/request">Send a request <span>→</span></Link></div>
+        <div><h2>One request. AFOS handles the delivery.</h2><p>Tell us how many containers you need moved, where they should be collected, where they should be delivered, and when they are required.</p><Link className="marketing-primary dark-action" href="/request">Send a request <span>→</span></Link></div>
       </section>
 
       <section className="enquiry-section" aria-labelledby="enquiry-heading">
@@ -35,7 +35,7 @@ export default function Home() {
 
       <footer className="marketing-footer">
         <div className="brand"><span className="brand-mark">A</span><span><strong>AFOS</strong><small>African Fleet Operating System</small></span></div>
-        <p>Container transport coordination.<br /><a href="tel:+23299507223">+232 99 507223</a></p>
+        <p>Container transport and delivery.<br /><a href="tel:+23299507223">+232 99 507223</a></p>
         <span>Freetown · Sierra Leone</span>
       </footer>
     </main>

@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.7
+**Version:** 0.8
 **Last updated:** 6 October 2026
 
 ## 1. Purpose
@@ -23,7 +23,7 @@ The homepage must explain the service in customer language, keep the transport r
 
 ## 2. Product objective
 
-Enable genuine container-transport demand to be matched with verified suitable capacity and coordinated from request through delivery and completion in one traceable workflow.
+Enable AFOS to accept genuine container-delivery requests, source suitable capacity, and remain responsible for fulfilment from request through completed delivery.
 
 ## 3. Product principles
 
@@ -52,9 +52,9 @@ Enable genuine container-transport demand to be matched with verified suitable c
 | Role | Primary responsibility |
 |---|---|
 | Guest customer | Submit and privately track a transport request without creating an account |
-| Freight forwarder user | Submit and coordinate requests for authorized customers/cargo |
+| Freight forwarder user | Submit and manage requests for authorized customers/cargo |
 | Provider contact | Represent a transport company or individual vehicle owner; an AFOS account is not required during the controlled pilot |
-| AFOS operations | Verify supply, coordinate matching, manage allocations, trips, and exceptions |
+| AFOS operations | Verify supply, source suitable capacity, and manage deliveries, allocations, trips, and exceptions |
 | AFOS administrator | Manage access, configuration, suspensions, and audit oversight |
 
 A person may have more than one authorized role, but permissions must always be explicit and associated with an organization.
@@ -162,7 +162,7 @@ The system must:
 
 Automated AI matching and mandatory provider self-service accounts are outside the controlled-pilot workflow.
 
-The pilot will record manually coordinated quotations or confirmed prices. Automated estimated pricing and unrestricted price-only provider comparison are outside the MVP.
+The pilot will record manually sourced quotations or confirmed prices. Automated estimated pricing and unrestricted price-only provider comparison are outside the MVP.
 
 ### Epic 7 — Allocation
 
@@ -196,7 +196,7 @@ The system must:
 - Allow authorized users to report an exception against a request, allocation, or trip.
 - Record type, time, reporter, description, operational impact, and evidence.
 - Record response, responsible owner, resolution, and replacement-capacity requirement.
-- Distinguish technology, coordination, capacity, and execution failures.
+- Distinguish technology, sourcing, capacity, and delivery-execution failures.
 - Keep unresolved exceptions visible to AFOS operations.
 
 ### Epic 10 — Delivery and completion
@@ -435,4 +435,5 @@ A request is not automatically added to the MVP because one participant asks for
 | 8 Sep 2026 | 0.7 | Replaced the active marketplace workflow with a single no-account request form and private Google Sheet inbox | Founder / technical partner |
 | 10 Sep 2026 | 0.7 | Production-verified the request submission and private Sheet delivery path | Founder / technical partner |
 | 22 Sep 2026 | 0.7 | Directed the downloadable QR entry point to the public homepage | Founder / technical partner |
-| 6 Oct 2026 | 0.7 | Added accurate customer-facing coordination language, direct enquiries, and small-screen usability requirements | Founder / technical partner |
+| 6 Oct 2026 | 0.7 | Added direct enquiries and small-screen usability requirements | Founder / technical partner |
+| 6 Oct 2026 | 0.8 | Defined AFOS as the customer-facing delivery service, even when sourced providers fulfil the movement | Founder / technical partner |

@@ -20,7 +20,7 @@ export function AuthShell({
         </Link>
         <div>
           <span className="auth-kicker">Controlled pilot access</span>
-          <h1>Coordinate every movement with a clear operational record.</h1>
+          <h1>Manage every delivery with a clear operational record.</h1>
           <p>Demand, verified capacity, allocation, dispatch, exceptions and delivery—connected in one accountable workflow.</p>
         </div>
         <small>Initial market · Sierra Leone</small>

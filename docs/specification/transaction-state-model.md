@@ -10,7 +10,7 @@
 Terminal alternatives are `Partially Completed`, `Unfulfilled`, `Failed`, and `Cancelled`.
 
 - **Draft:** Editable, not yet operational demand.
-- **Submitted:** Genuine request awaiting validation/coordination.
+- **Submitted:** Genuine request awaiting validation and sourcing.
 - **Matching:** Capacity search and provider offers underway.
 - **Partially Matched:** Some requested quantity has accepted capacity.
 - **Matched:** Required quantity has accepted capacity but is not fully allocated.
@@ -46,4 +46,3 @@ An accepted offer is not a completed allocation. It authorizes creation of commi
 - At what point is cancellation no longer valid and failure must be recorded instead?
 - What delivery evidence is mandatory for completion?
 - Who confirms partial completion and the remaining commercial obligation?
-

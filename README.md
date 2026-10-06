@@ -1,8 +1,8 @@
 # AFOS Platform
 
-African Fleet Operating System (AFOS) is a proposed container transport capacity coordination platform for Sierra Leone.
+African Fleet Operating System (AFOS) is a proposed container transport delivery service for Sierra Leone.
 
-The initial product will be a mobile-first web application connecting genuine container transport demand with verified suitable capacity and coordinating movements through completion.
+The initial product will be a mobile-first web application accepting genuine container transport requests while AFOS sources suitable capacity and remains responsible for delivery completion.
 
 ## Project documents
 

@@ -4,7 +4,7 @@
 
 **Initial market:** Sierra Leone  
 **Document status:** Living draft  
-**Version:** 0.7
+**Version:** 0.8
 **Last updated:** 6 October 2026
 
 ## 1. Purpose
@@ -23,7 +23,7 @@ A first AFOS container-transport flyer is stored in `assets/flyer/` with its gen
 
 A separate 90 × 55 mm, two-sided contact card keeps the container-truck photograph and a single explanatory sentence on the front. Its clean back contains a large QR code, phone/WhatsApp number, email, and full AFOS name. The deliverables include an individual-card PDF and a duplex A4 ten-up sheet with cutting guides; the original digital flyer remains unchanged.
 
-The public homepage now asks “Need transport for your container?”, displays the African Fleet Operating System name as part of the logo treatment, offers WhatsApp and phone enquiries without a second form, and has targeted small-phone typography, deliberate headline wrapping, navigation, form-padding, and placeholder refinements. The request form uses the same branded logo treatment without an explanatory acronym sentence. Responsive verification covers 320px, 390px, tablet, and desktop widths.
+The public homepage now asks “Need transport for your container?”, identifies AFOS as the service that handles the transport and delivers the container, displays the African Fleet Operating System name as part of the logo treatment, and offers WhatsApp and phone enquiries without a second form. The footer describes container transport and delivery. Responsive verification covers 320px, 390px, tablet, and desktop widths.
 
 ## 2. Delivery principles
 
@@ -416,7 +416,7 @@ Prepare people, rules, data, and support before any live movement.
 - Obtain appropriate legal/regulatory review.
 - Train participants using test transactions.
 - Establish support contacts and escalation procedures.
-- Record existing coordination baselines.
+- Record existing delivery-fulfilment baselines.
 - Prepare daily/weekly review templates and issue register.
 - Confirm production monitoring and incident response.
 
@@ -495,7 +495,7 @@ Act on evidence without assuming expansion is automatically justified.
 ### Activities
 
 - Compare pilot results with baseline performance.
-- Separate technology, coordination, capacity, and execution failures.
+- Separate technology, sourcing, capacity, and delivery-execution failures.
 - Review unit economics and collection practicality.
 - Identify the smallest corrective or expansion release.
 - Update the Concept Note, PRD, architecture, and roadmap.
@@ -637,3 +637,4 @@ User review found that eight equally weighted metrics were repetitive and did no
 | 10 Sep 2026 | 0.7 | Deployed and production-tested the simplified request flow and private Google Sheet intake | Founder / technical partner |
 | 22 Sep 2026 | 0.7 | Redirected QR access to the homepage, patched dependency advisories, aligned health checks with the active Google Sheet flow, and produced the first transport flyer | Founder / technical partner |
 | 6 Oct 2026 | 0.7 | Aligned the homepage with the flyer message, added direct enquiries, and refined/tested the mobile public journey | Founder / technical partner |
+| 6 Oct 2026 | 0.8 | Repositioned customer-facing copy and delivery artifacts around AFOS delivering the container movement | Founder / technical partner |

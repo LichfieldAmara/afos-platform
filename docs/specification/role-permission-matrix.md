@@ -24,7 +24,7 @@
 - Demand-side users see only requests belonging to organizations in which they have an active membership.
 - Provider users see only their provider's assets, capacity, offers, allocations, and trips, except information explicitly included in an offer.
 - Drivers see only trips currently or historically assigned to their driver identity.
-- AFOS Operations may coordinate across organizations but cannot administer platform access unless separately granted administrator authority.
+- AFOS Operations may manage deliveries across organizations but cannot administer platform access unless separately granted administrator authority.
 - Suspended memberships immediately lose active access; transaction history remains intact.
 - Database Row Level Security must enforce these rules independently of the interface.
 
@@ -34,4 +34,3 @@
 - May customers confirm delivery, or only AFOS Operations during the pilot?
 - Should freight forwarders operate on behalf of multiple customer organizations?
 - Which AFOS staff may view sensitive driver documents?
-

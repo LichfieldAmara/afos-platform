@@ -35,7 +35,7 @@ const design = Buffer.from(`<svg width="${width}" height="${height}" xmlns="http
   <text x="120" y="945" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" font-size="150" font-weight="600" letter-spacing="-7">your container?</text>
   <rect x="125" y="1030" width="100" height="10" rx="5" fill="#ed5a2a"/>
   <text x="125" y="1124" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" font-size="48">Tell AFOS where and when.</text>
-  <text x="125" y="1196" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" font-size="48">We’ll help arrange the transport.</text>
+  <text x="125" y="1196" fill="#fff" font-family="Helvetica Neue, Arial, sans-serif" font-size="48">AFOS will handle the delivery.</text>
   <rect x="0" y="2230" width="2400" height="770" fill="#f8f5ef"/>
   <rect x="125" y="2345" width="20" height="210" rx="10" fill="#ed5a2a"/>
   <text x="190" y="2415" fill="#1b3029" font-family="Helvetica Neue, Arial, sans-serif" font-size="76" font-weight="700" letter-spacing="-2">SCAN TO REQUEST</text>

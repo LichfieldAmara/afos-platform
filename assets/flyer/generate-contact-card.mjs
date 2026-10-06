@@ -30,8 +30,8 @@ const frontArtwork = Buffer.from(`<svg width="${width}" height="${height}" xmlns
   <text x="39" y="287" fill="#fff" font-family="Arial, sans-serif" font-size="70" font-weight="700" letter-spacing="-3">Need transport for</text>
   <text x="39" y="363" fill="#fff" font-family="Arial, sans-serif" font-size="70" font-weight="700" letter-spacing="-3">your container?</text>
   <rect x="42" y="406" width="62" height="7" rx="4" fill="#ed5a2a"/>
-  <text x="42" y="476" fill="#fff" font-family="Arial, sans-serif" font-size="34">Tell us where it is, where it needs to go</text>
-  <text x="42" y="520" fill="#fff" font-family="Arial, sans-serif" font-size="34">and when.</text>
+  <text x="42" y="465" fill="#fff" font-family="Arial, sans-serif" font-size="31">Tell us where your container is, where it needs to go</text>
+  <text x="42" y="507" fill="#fff" font-family="Arial, sans-serif" font-size="31">and when. AFOS will handle the delivery.</text>
   <text x="42" y="600" fill="#fff" opacity="0.82" font-family="Arial, sans-serif" font-size="25">FREETOWN · SIERRA LEONE</text>
 </svg>`);
 
