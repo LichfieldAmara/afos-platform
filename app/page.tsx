@@ -30,7 +30,7 @@ export default function Home() {
 
       <section className="enquiry-section" aria-labelledby="enquiry-heading">
         <div><span className="section-index">NOT READY TO REQUEST?</span><h2 id="enquiry-heading">Have a question first?</h2><p>Speak directly with AFOS about your container transport needs. No form or account is required.</p></div>
-        <div className="enquiry-actions"><a className="enquiry-primary" href={whatsappEnquiry}>WhatsApp AFOS <span>↗</span></a><a className="enquiry-secondary" href="tel:+23299507223">Call +232 99 507223</a></div>
+        <div className="enquiry-actions"><a className="enquiry-primary" href={whatsappEnquiry} target="_blank" rel="noopener noreferrer">WhatsApp AFOS <span>↗</span></a><a className="enquiry-secondary" href="tel:+23299507223">Call +232 99 507223</a></div>
       </section>
 
       <footer className="marketing-footer">
